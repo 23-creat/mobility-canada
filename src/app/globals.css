@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
+/* ─── Mobility Canada — Design System ─── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Palette */
+  --primary:   #003366;   /* Bleu Royal / confiance & expertise */
+  --secondary: #D80621;   /* Rouge Canada / action & identité */
+
+  /* Surfaces */
+  --background: #FFFFFF;
+  --surface:    #F8F9FA;   /* Gris "Nuage" pour les sections alternées */
+  --foreground: #0D0D0D;
+
+  /* Typography */
+  --font-body:    var(--font-inter);
+  --font-display: var(--font-playfair);
 }
 
 @theme inline {
+  /* Couleurs de marque accessibles via bg-primary, text-secondary, etc. */
+  --color-primary:    var(--primary);
+  --color-secondary:  var(--secondary);
   --color-background: var(--background);
+  --color-surface:    var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Typographie */
+  --font-sans:    var(--font-body);
+  --font-display: var(--font-display);
+
+  /* Espacements étendus */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-30: 7.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ─── Base ─── */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Hero CSS Animations — LCP-optimized, zéro JS requis ───────────────────
+   Ces keyframes s'exécutent DÈS que la feuille de style est parsée, avant même
+   la moindre hydratation React. Le H1 est visible en ~250ms après le premier byte.
+──────────────────────────────────────────────────────────────────────────── */
+
+@keyframes hero-slide-up {
+  from { opacity: 0; transform: translateY(48px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-pulse-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(7px); }
+}
+
+/* Classes utilitaires — le délai est injecté via --anim-delay (inline style) */
+.hero-slide-up {
+  animation: hero-slide-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--anim-delay, 0s) both;
+}
+
+.hero-fade-up {
+  animation: hero-fade-up 0.65s ease-out var(--anim-delay, 0s) both;
+}
+
+.hero-pulse-y {
+  animation: hero-pulse-y 2s ease-in-out 1.8s infinite;
+}
+
+/* Respect des préférences d'accessibilité (prefers-reduced-motion) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-up,
+  .hero-fade-up,
+  .hero-pulse-y {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ─── Composants de base ─── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--secondary);
+  color: #ffffff;
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.875rem 2rem;
+  border-radius: 4px;
+  transition: background 200ms ease, transform 150ms ease;
+}
+
+.btn-primary:hover {
+  background: #b8041c;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.875rem 2rem;
+  border-radius: 4px;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #ffffff;
 }
