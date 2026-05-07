@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Inter_Tight, JetBrains_Mono, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -8,17 +8,28 @@ import "./globals.css";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  // "optional" : rend le texte immédiatement avec la police de secours (Arial local)
-  // sans swap ultérieur — élimine les mises à jour LCP liées au chargement de la police.
   display: "optional",
+});
+
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+  display: "optional",
+  weight: ["400", "500", "600", "700"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  display: "optional",
+  weight: ["400", "500", "600"],
 });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
-  // "optional" : même logique — évite que le swap de Playfair ne repousse le LCP.
   display: "optional",
-  weight: ["400", "700"],
+  weight: ["400", "600", "700"],
 });
 
 /* ─── SEO — Metadata optimisées ─── */
@@ -32,7 +43,7 @@ export const metadata: Metadata = {
       "Mobility Canada — Experts en Immigration, Visa et Relocalisation au Canada",
   },
   description:
-    "Cabinet de conseil agréé CRIC en immigration canadienne. Accompagnement sur mesure pour votre visa étudiant, permis de travail et résidence permanente au Canada. 1 200+ clients accompagnés, 98% de succès.",
+    "Accompagnement sur mesure pour votre visa étudiant, permis de travail et résidence permanente au Canada. Présent dans les DOM-TOM.",
   keywords: [
     "immigration Canada",
     "Mobility Canada",
@@ -43,8 +54,7 @@ export const metadata: Metadata = {
     "expatriation Canada",
     "relocalisation Canada",
     "CAQ",
-    "consultant immigration CRIC",
-    "consultant immigration CICC",
+    "consultant immigration Canada",
     "s'installer au Canada depuis la France",
   ],
 
@@ -53,9 +63,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://www.mobilitycanada.fr",
     siteName: "Mobility Canada",
-    title: "Mobility Canada — Experts en Immigration Canadienne agréés CRIC",
+    title: "Mobility Canada — Experts en Immigration et Relocalisation au Canada",
     description:
-      "Cabinet de conseil CRIC spécialisé en immigration au Canada. Visa étudiant, permis de travail, résidence permanente. 98% de dossiers acceptés. Consultation gratuite.",
+      "Spécialisé en immigration au Canada. Visa étudiant, permis de travail, résidence permanente. Présent dans les DOM-TOM. Consultation gratuite.",
     images: [
       {
         url: "/og-image.jpg",
@@ -68,9 +78,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Mobility Canada — Immigration au Canada | Consultants agréés CRIC",
+    title: "Mobility Canada — Immigration au Canada | Experts en Relocalisation",
     description:
-      "Visa étudiant, permis de travail, résidence permanente. Accompagnement personnalisé par des consultants certifiés CRIC / CICC.",
+      "Visa étudiant, permis de travail, résidence permanente. Accompagnement personnalisé par des experts en immigration canadienne.",
     images: ["/og-image.jpg"],
   },
 
@@ -101,7 +111,7 @@ const orgSchema = {
   "@type": "ProfessionalService",
   name: "Mobility Canada",
   description:
-    "Cabinet de conseil agréé CRIC spécialisé en immigration et relocalisation au Canada.",
+    "Expert en immigration et relocalisation au Canada.",
   url: "https://www.mobilitycanada.fr",
   logo: "https://www.mobilitycanada.fr/logo.png",
   priceRange: "€€",
@@ -149,10 +159,10 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${inter.variable} ${interTight.variable} ${jetbrainsMono.variable} ${playfair.variable}`}
     >
       <head />
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body>
         {children}
 
         {/* JSON-LD — Organisation */}
@@ -169,6 +179,21 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
+        {/* Meta Pixel */}
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', 'PIXEL_ID_A_REMPLACER');
+            fbq('track', 'PageView');
+          `}
+        </Script>
       </body>
     </html>
   );

@@ -50,7 +50,7 @@ export default function HeroSection() {
       ──────────────────────────────────────── */}
       <div className="relative z-10 mx-auto flex max-w-7xl flex-1 flex-col justify-center px-5 pb-6 pt-28 sm:px-8 sm:pt-32 lg:px-10 lg:pt-36">
 
-        {/* Badge CRIC — signal de confiance n°1 */}
+        {/* Badge confiance */}
         {/* hero-fade-up : opacity 0→1 + translateY(20px→0) dès le premier octet CSS */}
         <div
           className="hero-fade-up mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-2"
@@ -62,7 +62,7 @@ export default function HeroSection() {
             aria-hidden
           />
           <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-300">
-            Consultants agréés CRIC&nbsp;/&nbsp;CICC
+            Experts en immigration canadienne
           </span>
         </div>
 

@@ -1,18 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Cookie, X } from "lucide-react";
 
 const STORAGE_KEY = "mc-cookie-consent";
 
 export default function CookieBanner() {
-  // true par défaut → le banner est dans le HTML initial (SSR) et compte comme LCP précoce.
-  // Après hydration, useEffect masque si l'utilisateur a déjà répondu.
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    if (localStorage.getItem(STORAGE_KEY)) setVisible(false);
-  }, []);
+  // Lazy initialiser — runs only on the client after hydration.
+  // Returns false if the user has already responded, true otherwise.
+  const [visible, setVisible] = useState<boolean>(
+    () => typeof window !== "undefined" && !localStorage.getItem(STORAGE_KEY)
+  );
 
   const accept = () => { localStorage.setItem(STORAGE_KEY, "accepted"); setVisible(false); };
   const decline = () => { localStorage.setItem(STORAGE_KEY, "declined"); setVisible(false); };

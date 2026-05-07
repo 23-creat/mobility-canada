@@ -13,17 +13,11 @@ const Testimonials = dynamic(
   () => import("@/components/sections/Testimonials"),
   { loading: () => <div className="min-h-[440px] bg-[#F8F9FA]" aria-hidden /> }
 );
-const LeadMagnetSection = dynamic(
-  () => import("@/components/sections/LeadMagnetSection"),
-  { loading: () => <div className="min-h-[320px] bg-[#003366]" aria-hidden /> }
-);
-
 export default function BelowFoldSections() {
   return (
     <>
       <ProcessTimeline />
       <Testimonials />
-      <LeadMagnetSection />
     </>
   );
 }
