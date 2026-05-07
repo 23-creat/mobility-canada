@@ -21,7 +21,7 @@ const ROUTES: Route[] = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROUTES.map(({ path, priority, changeFrequency }) => ({
     url: `${BASE_URL}${path}`,
-    lastModified: new Date(),
+    lastModified: new Date("2026-05-07"),
     changeFrequency,
     priority,
   }));

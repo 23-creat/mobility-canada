@@ -50,11 +50,11 @@ export default function InnerPageHero({
           transition={{ duration: 0.75, ease: EXPO_OUT }}
           className="max-w-3xl"
         >
-          {/* Badge CRIC */}
+          {/* Badge confiance */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/25 bg-emerald-500/10 px-4 py-1.5">
             <ShieldCheck className="size-3.5 text-emerald-400" strokeWidth={2} aria-hidden />
             <span className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-emerald-300">
-              Consultants agréés CRIC&nbsp;/&nbsp;CICC
+              Experts en immigration canadienne
             </span>
           </div>
 

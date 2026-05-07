@@ -1,394 +1,202 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  GraduationCap, FileText, Shield, Home, Briefcase, Award,
-  MapPin, Globe, TrendingUp, CheckCircle2, ChevronRight,
-  ShieldCheck, Languages, Coins, Star, Phone, ArrowRight,
-  Heart, Lock, Users,
-} from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import FaqAccordion, { type FaqItem } from "@/components/ui/FaqAccordion";
-import LogoMark from "@/components/ui/LogoMark";
-
-/* ─── SEO ─── */
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Études au Canada — Visa Étudiant, CAQ, Logement Sécurisé | Mobility Canada",
+  title: "Études au Canada — Accompagnement étudiant à partir de 1 100€, Logement Sécurisé | Mobility Canada",
   description:
-    "Accompagnement complet pour étudier au Canada : admission dans 50+ universités, CAQ, permis d'études et logement sécurisé avant l'arrivée. Votre enfant sera encadré de A à Z. Consultants agréés CRIC.",
+    "Accompagnement sur mesure pour étudier au Canada : validation programme, assistance immigration via avocats partenaires, logement sécurisé avant l'arrivée, accueil aéroport. Services à la carte dès 1 100€.",
   keywords: [
     "visa étudiant Canada", "CAQ Québec", "permis d'études Canada",
     "logement étudiant Montréal", "étudier au Canada depuis France",
     "accompagnement étudiant Canada", "parents étudiant Canada",
   ],
   openGraph: {
-    title: "Étudier au Canada | Logement, Visa, CAQ — Mobility Canada",
-    description: "De l'admission au logement sécurisé : votre enfant encadré de A à Z. Taux de succès 98%.",
+    title: "Étudier au Canada | Accompagnement à la carte dès 1 100€ — Mobility Canada",
+    description: "Validation programme, assistance immigration, logement, accueil aéroport, installation. Services à la carte adaptés à votre projet.",
   },
 };
-
-/* ─── Types ─── */
-
-interface ServiceCard {
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number; "aria-hidden"?: boolean }>;
-  tag: string;
-  label: string;
-  desc: string;
-  highlight?: string;
-}
-
-/* ─── Données ─── */
-
-const SERVICES: ServiceCard[] = [
-  {
-    icon: Home,
-    tag: "Logement",
-    label: "Logement sécurisé avant le départ",
-    desc: "Studio meublé, colocation ou résidence étudiante — votre enfant a une adresse confirmée avant d'embarquer. Nous négocions et réservons à distance, pour votre tranquillité.",
-    highlight: "Confirmation écrite avant l'arrivée",
-  },
-  {
-    icon: GraduationCap,
-    tag: "Admission",
-    label: "Dossier d'admission universitaire",
-    desc: "Sélection des établissements selon le profil, rédaction de la lettre de motivation, traduction des relevés de notes, suivi des candidatures jusqu'à l'offre d'admission.",
-    highlight: "50+ universités partenaires",
-  },
-  {
-    icon: FileText,
-    tag: "Document officiel",
-    label: "Certificat d'Acceptation du Québec (CAQ)",
-    desc: "Obligatoire pour toute étude au Québec. Nous constituons et déposons le dossier complet en votre nom auprès du Ministère de l'Immigration du Québec.",
-    highlight: "Délai moyen : 3–5 semaines",
-  },
-  {
-    icon: Shield,
-    tag: "Visa fédéral",
-    label: "Permis d'études canadien",
-    desc: "Dépôt auprès d'IRCC avec vérification de chaque pièce. Objectif : zéro motif de refus. Inclut l'autorisation de travailler pendant les études.",
-    highlight: "Valable partout au Canada",
-  },
-  {
-    icon: MapPin,
-    tag: "Arrivée J+1",
-    label: "Accueil et installation",
-    desc: "Transfert aéroport, ouverture de compte bancaire, inscription à la RAMQ et obtention du NAS — tout est coordonné dès le premier jour pour une installation sans stress.",
-    highlight: "Check-list administrative complète",
-  },
-  {
-    icon: Award,
-    tag: "Après études",
-    label: "Post-Graduation Work Permit (PGWP)",
-    desc: "À l'issue des études, nous accompagnons vers le PGWP — permis de travail ouvert jusqu'à 3 ans — et les démarches vers la résidence permanente si souhaité.",
-    highlight: "Voie directe vers Express Entry",
-  },
-];
-
-const STATS = [
-  { value: "50+",    label: "Universités partenaires", note: "Canada & Québec"       },
-  { value: "98 %",   label: "Dossiers acceptés",       note: "Sur 5 ans de données"  },
-  { value: "4 mois", label: "Délai moyen installation",note: "Admission à J+1"       },
-  { value: "12 ans", label: "D'expertise Canada",      note: "Depuis 2013"           },
-] as const;
-
-const WHY_CANADA = [
-  { icon: GraduationCap, title: "Universités de rang mondial",      description: "McGill, UBC, U de Montréal, Concordia — des diplômes reconnus dans 190 pays.",                                          stat: "30+ universités Top 500 mondial"          },
-  { icon: Coins,         title: "Coût des études accessible",        description: "40 à 60 % moins cher que le Royaume-Uni ou les États-Unis, pour un niveau équivalent.",                                  stat: "De 8 000 à 25 000 CAD / an"               },
-  { icon: Briefcase,     title: "Travailler pendant les études",     description: "Jusqu'à 24h/semaine hors campus, sans limite pendant les vacances — revenus et expérience.",                              stat: "Permis de travail inclus dans le visa"    },
-  { icon: TrendingUp,    title: "Voie directe vers la résidence",    description: "Le PGWP et Express Entry ouvrent une voie privilégiée vers la résidence permanente.",                                     stat: "PGWP jusqu'à 3 ans après l'obtention"    },
-  { icon: Languages,     title: "Environnement bilingue",            description: "Québec en français, reste du Canada en anglais — une immersion qui booste l'employabilité internationale.",               stat: "Montréal : 2ᵉ ville francophone mondiale" },
-  { icon: ShieldCheck,   title: "Sécurité et qualité de vie",        description: "Le Canada se classe parmi les pays les plus sûrs au monde. Montréal et Vancouver : Top 10 mondial étudiant.",            stat: "Top 10 QS Best Student Cities"            },
-];
-
-const FAQ_ITEMS: FaqItem[] = [
-  {
-    question: "Mon enfant n'a jamais vécu seul — comment gérez-vous son arrivée ?",
-    answer: "C'est précisément pour ça que nous existons. Notre service d'accueil débute dès l'atterrissage : un référent l'attend à l'aéroport, l'accompagne à son logement, l'aide à ouvrir son compte bancaire et à s'inscrire à la RAMQ le jour même. Un check-in hebdomadaire est prévu durant les 4 premières semaines. Vous avez un numéro direct pour suivre l'évolution à tout moment.",
-  },
-  {
-    question: "Comment le logement est-il sécurisé avant le départ ?",
-    answer: "Nous travaillons avec un réseau de propriétaires et résidences étudiantes vérifiés à Montréal, Québec, Toronto et Vancouver. Après avoir défini le budget et les critères, nous réservons et obtenons une confirmation écrite avant que votre enfant embarque. Il/elle arrive avec une adresse, des clés et un logement prêt à vivre. Aucune galère d'hôtel à l'arrivée.",
-  },
-  {
-    question: "Quelle est la différence entre le CAQ et le permis d'études ?",
-    answer: "Le CAQ est un document provincial (Québec uniquement), délivré par le Ministère de l'Immigration du Québec. Le permis d'études est un document fédéral délivré par IRCC, obligatoire dans toutes les provinces. Pour étudier au Québec, les deux sont requis. Nous gérons les deux simultanément pour réduire les délais.",
-  },
-  {
-    question: "Mon enfant peut-il travailler pendant ses études ?",
-    answer: "Oui. Les étudiants titulaires d'un permis valide peuvent travailler jusqu'à 24h/semaine hors campus durant les sessions et sans limite pendant les vacances. Ce droit est intégré dans le permis d'études — aucune démarche supplémentaire.",
-  },
-  {
-    question: "Combien de temps à l'avance faut-il commencer ?",
-    answer: "Nous recommandons de commencer 12 à 18 mois avant la rentrée souhaitée. Les dossiers d'admission ont des délais stricts (souvent septembre à janvier pour une rentrée en septembre), et les traitements CAQ + permis d'études peuvent prendre 6 à 16 semaines. Plus tôt on commence, plus on a de marge pour le logement aussi.",
-  },
-  {
-    question: "Puis-je rester en contact avec un conseiller si j'ai des inquiétudes ?",
-    answer: "Absolument. En tant que parent, vous avez accès à notre équipe par email et téléphone pendant toute la durée du dossier. Nous vous envoyons un rapport d'étape à chaque validation importante (admission, CAQ, permis, logement confirmé). Vous n'êtes jamais dans le flou.",
-  },
-  {
-    question: "Mon diplôme français sera-t-il reconnu au Canada ?",
-    answer: "En règle générale, oui. Les universités canadiennes reconnaissent les diplômes du baccalauréat, BTS, BUT et licences françaises. Une évaluation d'équivalence est parfois requise selon le programme. Nos conseillers vous guident sur les équivalences spécifiques à chaque situation.",
-  },
-];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: { "@type": "Answer", text: item.answer },
-  })),
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Quel est le calendrier idéal pour un départ à la prochaine rentrée ?",
+      acceptedAnswer: { "@type": "Answer", text: "Nous recommandons de démarrer 6 mois avant la rentrée (M-6). À M-4, la lettre d'admission est obtenue et les frais immigration sont payés. À M-2, le permis d'études est validé et le volet logement est activé. Le jour J, un référent vous attend à l'aéroport." },
+    },
+    {
+      "@type": "Question",
+      name: "Gérez-vous directement les dossiers CAQ et permis d'études ?",
+      acceptedAnswer: { "@type": "Answer", text: "Nous vous orientons, préparons et vérifions chaque document, mais les dossiers d'immigration sont soumis via nos avocats et para-juristes partenaires agréés. Vous bénéficiez d'un encadrement légal rigoureux tout au long du processus." },
+    },
+    {
+      "@type": "Question",
+      name: "Comment le logement est-il sécurisé avant le départ ?",
+      acceptedAnswer: { "@type": "Answer", text: "Nous utilisons Kijiji, Centris et notre réseau de courtiers locaux pour trouver le logement adapté. Une confirmation écrite est remise avant l'embarquement." },
+    },
+    {
+      "@type": "Question",
+      name: "Mon enfant peut-il travailler pendant ses études ?",
+      acceptedAnswer: { "@type": "Answer", text: "Oui. Les étudiants titulaires d'un permis valide peuvent travailler jusqu'à 24h/semaine hors campus durant les sessions et sans limite pendant les vacances. Ce droit est intégré dans le permis d'études." },
+    },
+    {
+      "@type": "Question",
+      name: "Combien coûte l'accompagnement complet ?",
+      acceptedAnswer: { "@type": "Answer", text: "Nos services sont facturés à la carte, dès 1 100€ pour la recherche de logement. Chaque prestation est indépendante : accueil aéroport (300€), journée d'installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens." },
+    },
+  ],
 };
-
-/* ─── Composants ─── */
-
-function ServiceCard({ icon: Icon, tag, label, desc, highlight }: ServiceCard) {
-  const tagColors: Record<string, string> = {
-    "Logement":         "bg-emerald-50 text-emerald-700",
-    "Admission":        "bg-[#003366]/8 text-[#003366]",
-    "Document officiel": "bg-amber-50 text-amber-700",
-    "Visa fédéral":     "bg-sky-50 text-sky-700",
-    "Arrivée J+1":      "bg-violet-50 text-violet-700",
-    "Après études":     "bg-rose-50 text-rose-700",
-  };
-  return (
-    <article className="group relative flex flex-col rounded-2xl border border-neutral-100 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,51,102,0.1)]">
-      <div className="mb-4 flex size-11 items-center justify-center rounded-xl bg-[#003366]/8 transition-colors duration-300 group-hover:bg-[#003366]/15">
-        <Icon className="size-5 text-[#003366]" strokeWidth={1.75} aria-hidden />
-      </div>
-      <span className={`mb-3 inline-flex w-fit rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${tagColors[tag] ?? "bg-neutral-100 text-neutral-600"}`}>
-        {tag}
-      </span>
-      <h3 className="mb-2 font-display text-[1rem] font-bold leading-snug text-[#003366]">{label}</h3>
-      <p className="flex-1 text-[0.875rem] leading-relaxed text-neutral-600">{desc}</p>
-      {highlight && (
-        <div className="mt-4 flex items-center gap-1.5">
-          <CheckCircle2 className="size-3.5 flex-shrink-0 text-emerald-500" strokeWidth={2.5} aria-hidden />
-          <span className="text-[0.8125rem] font-medium text-emerald-700">{highlight}</span>
-        </div>
-      )}
-      <div className="absolute inset-x-0 bottom-0 h-[2px] rounded-b-2xl bg-[#D80621] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-    </article>
-  );
-}
-
-/* ─── Page ─── */
 
 export default function EtudiantPage() {
   return (
     <>
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ScrollReveal />
+
       <main id="main-content">
 
         {/* ══════════════════════════════════════════════
-            1. HERO — Dual persona étudiant + parents
+            1. E-HERO  — fond blanc, ton campus
         ══════════════════════════════════════════════ */}
-        <section
-          aria-labelledby="etudiant-h1"
-          className="relative overflow-hidden bg-[#003366] pb-0 pt-28 sm:pt-32 lg:pt-36"
-        >
-          {/* Filigrane M */}
-          <LogoMark className="pointer-events-none absolute -right-20 -bottom-16 h-[520px] w-auto text-white opacity-[0.035] select-none" />
-
-          {/* Fond décoratif */}
-          <div className="pointer-events-none absolute inset-0" aria-hidden>
-            <div className="absolute right-[-6%] top-[5%] h-[520px] w-[520px] rounded-full bg-[#D80621]/9 blur-[120px]" />
-            <div className="absolute left-[-8%] bottom-[-8%] h-[400px] w-[400px] rounded-full bg-white/[0.03] blur-[80px]" />
-            <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1.2px, transparent 0)", backgroundSize: "28px 28px" }} />
-          </div>
-
-          <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid items-end gap-12 pb-16 lg:grid-cols-[1fr_440px] lg:pb-0">
-
-              <div className="pt-4">
-                {/* Badge dual persona */}
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2">
-                  <Users className="size-3.5 text-white/70" aria-hidden />
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.12em] text-white/70">
-                    Pour l&apos;étudiant &amp; ses parents
-                  </span>
+        <section className="e-hero" aria-labelledby="etudiant-h1">
+          <div className="mc-container">
+            <div className="e-hero-grid">
+              <div>
+                <div className="eyebrow-row">
+                  <span className="dot" aria-hidden="true" />
+                  <span className="eyebrow">Étudiants &amp; familles — France métropolitaine &amp; DOM-TOM</span>
                 </div>
-
-                <h1 id="etudiant-h1" className="mb-6 font-display text-[2.5rem] font-bold leading-[1.08] tracking-tight text-white sm:text-[3.1rem] lg:text-[3.75rem]">
-                  Vos études au Canada.
-                  <br />
-                  <span className="text-white/65">Leur tranquillité à eux.</span>
+                <h1 id="etudiant-h1">
+                  Vos études<br />
+                  au Canada.<br />
+                  <em>Leur sérénité.</em>
                 </h1>
-
-                <p className="mb-8 max-w-[54ch] text-[1.0625rem] leading-[1.75] text-white/70">
-                  Un projet ambitieux qui mérite un encadrement solide. Admission, logement
-                  sécurisé avant le départ, visa, accueil à l&apos;arrivée — Mobility Canada
-                  gère tout pour que <em>vous</em> vous concentriez sur votre avenir,
-                  et que <em>vos parents</em> dorment sur leurs deux oreilles.
+                <p>
+                  De la Martinique à Paris, nos étudiants arrivent au Canada avec tout en ordre.
+                  Validation du programme, orientation immigration, logement sécurisé avant le départ,
+                  accueil aéroport et 2 jours d&apos;installation sur place — le tout pour <strong>2 500€ HT</strong>.
                 </p>
-
-                <div className="flex flex-wrap items-center gap-4">
-                  <Link href="/rendez-vous" className="btn-primary">
-                    Préparer mon dossier gratuitement
-                    <ChevronRight className="size-[15px]" aria-hidden />
+                <div className="e-hero-ctas">
+                  <Link href="/rendez-vous" className="btn btn-primary btn-arrow">
+                    Préparer mon dossier
                   </Link>
-                  <a href="#logement-etudiant" className="group inline-flex items-center gap-2 text-[0.9375rem] font-medium text-white/70 transition-colors hover:text-white">
-                    La question du logement
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
+                  <a href="#logement" className="btn btn-ghost">
+                    Question du logement
                   </a>
                 </div>
-
-                {/* Stats */}
-                <div className="mt-10 flex flex-wrap items-center gap-6 border-t border-white/10 pt-8">
-                  {[
-                    { v: "50+",    l: "Universités partenaires" },
-                    { v: "98 %",   l: "Dossiers acceptés" },
-                    { v: "4 mois", l: "Délai moyen installation" },
-                  ].map(({ v, l }) => (
-                    <div key={l} className="flex flex-col">
-                      <span className="font-display text-[1.5rem] font-bold text-white">{v}</span>
-                      <span className="text-[11px] font-medium uppercase tracking-wider text-white/60">{l}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
-              {/* Double carte étudiant + parent */}
-              <div className="hidden lg:flex flex-col gap-4 pb-12">
-                {/* Carte étudiant */}
-                <div className="rounded-3xl bg-white p-7 shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
-                  <div className="mb-4 flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="size-4 fill-amber-400 text-amber-400" aria-hidden />
-                    ))}
-                  </div>
-                  <blockquote className="mb-5 font-display text-[0.9875rem] leading-relaxed text-[#003366]">
-                    &ldquo;En 4 mois, admission à McGill, CAQ, permis d&apos;études et appartement
-                    à Montréal. Je n&apos;avais qu&apos;à me présenter le jour J.&rdquo;
-                  </blockquote>
-                  <footer className="flex items-center gap-3">
-                    <div className="flex size-9 items-center justify-center rounded-full bg-[#D80621] font-display text-xs font-bold text-white">CR</div>
-                    <div>
-                      <p className="font-semibold text-[#003366] text-sm">Camille R.</p>
-                      <p className="text-xs text-neutral-500">Licence Lyon 3 → Master McGill</p>
-                    </div>
-                  </footer>
-                </div>
-
-                {/* Carte parent */}
-                <div className="rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
-                  <div className="flex items-start gap-3">
-                    <div className="flex size-9 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500/20">
-                      <Heart className="size-4 text-emerald-300" strokeWidth={2} aria-hidden />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white text-sm">Ce que voient les parents</p>
-                      <ul className="mt-2 space-y-1.5 text-[0.8125rem] text-white/70">
-                        <li className="flex items-center gap-2">
-                          <CheckCircle2 className="size-3 flex-shrink-0 text-emerald-400" strokeWidth={2.5} aria-hidden />
-                          Logement confirmé avant l&apos;embarquement
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <CheckCircle2 className="size-3 flex-shrink-0 text-emerald-400" strokeWidth={2.5} aria-hidden />
-                          Rapport d&apos;étape à chaque validation
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <CheckCircle2 className="size-3 flex-shrink-0 text-emerald-400" strokeWidth={2.5} aria-hidden />
-                          Référent joignable pendant 90 jours
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <aside className="e-hero-aside">
+                <span className="eyebrow">La promesse parents</span>
+                <h3>Votre enfant arrive avec tout en ordre.</h3>
+                <ul className="e-hero-checklist">
+                  <li>Logement confirmé avant l&apos;embarquement</li>
+                  <li>Référent présent à l&apos;aéroport</li>
+                  <li>Rapport d&apos;étape à chaque validation</li>
+                  <li>Check-in hebdomadaire — 4 premières semaines</li>
+                  <li>Numéro direct pour les parents</li>
+                </ul>
+              </aside>
             </div>
           </div>
 
-          <div className="relative h-16 overflow-hidden" aria-hidden>
-            <svg viewBox="0 0 1440 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute bottom-0 w-full" preserveAspectRatio="none">
-              <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="white" />
-            </svg>
+          <div className="mc-container">
+            <div className="e-hero-footer" role="list" aria-label="Chiffres clés">
+              {[
+                { n: "1 100€", l: "À partir de" },
+                { n: "6",      l: "Services disponibles" },
+                { n: "M-6",    l: "Délai recommandé" },
+                { n: "100 %",  l: "Paiement sécurisé avant départ" },
+              ].map(({ n, l }) => (
+                <div key={l} role="listitem">
+                  <div className="n">{n}</div>
+                  <div className="l">{l}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════
-            2. LOGEMENT — La douleur principale
+            1b. STRIP UNIVERSITÉS PARTENAIRES
         ══════════════════════════════════════════════ */}
-        <section
-          id="logement-etudiant"
-          aria-labelledby="logement-heading"
-          className="bg-white py-20 lg:py-28"
-        >
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="e-uni-strip" aria-hidden="true">
+          <div className="mc-marquee">
+            <div className="e-uni-track">
+              {[
+                "McGill University", "Université de Montréal", "Concordia University",
+                "UQAM", "HEC Montréal", "Université Laval", "Simon Fraser University",
+                "UBC Vancouver", "Université d'Ottawa", "UQAC",
+                "McGill University", "Université de Montréal", "Concordia University",
+                "UQAM", "HEC Montréal", "Université Laval", "Simon Fraser University",
+                "UBC Vancouver", "Université d'Ottawa", "UQAC",
+              ].map((name, i) => (
+                <span key={i}>{name}</span>
+              ))}
+            </div>
+          </div>
+        </div>
 
+        {/* ══════════════════════════════════════════════
+            2. LOGEMENT
+        ══════════════════════════════════════════════ */}
+        <section id="logement" className="log" aria-labelledby="log-heading">
+          <div className="mc-container">
+            <div className="log-grid">
               <div>
-                <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#D80621]">
-                  La question n°1 des parents
-                </p>
-                <h2 id="logement-heading" className="mb-6 font-display text-[2rem] font-bold leading-tight text-[#003366] sm:text-[2.5rem]">
-                  &ldquo;Il/Elle sera
-                  <br />
-                  <span className="text-[#003366]/70">bien logé(e) ?&rdquo;</span>
+                <div className="eyebrow-row">
+                  <span className="dot" aria-hidden="true" />
+                  <span className="eyebrow">La question n°1 des parents</span>
+                </div>
+                <h2 id="log-heading" className="big-heading mc-reveal">
+                  &ldquo;Il/Elle sera<br />
+                  <span className="muted">bien logé(e) ?&rdquo;</span>
                 </h2>
-                <p className="mb-8 text-[1rem] leading-relaxed text-neutral-600">
-                  C&apos;est la première question que nous posent les parents — et la bonne. Se retrouver
-                  sans logement à Montréal en août, c&apos;est une réalité que des milliers d&apos;étudiants
-                  vivent chaque année. Nous avons bâti un réseau pour que ce ne soit jamais le cas de
-                  vos enfants.
+                <div className="log-pain">
+                  Se retrouver sans logement à Montréal en août : une réalité pour des milliers
+                  d&apos;étudiants chaque année. Nous avons bâti un réseau pour que ce ne soit jamais
+                  le cas de vos enfants.
+                </div>
+                <p>
+                  Nous travaillons avec un réseau de propriétaires et résidences étudiantes vérifiés.
+                  Confirmation écrite avant l&apos;embarquement — aucune galère d&apos;hôtel à l&apos;arrivée.
                 </p>
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {[
-                    { icon: Lock,    title: "Réservation sécurisée",   body: "Contrat signé et confirmé avant l'embarquement. Pas de surprise à l'arrivée." },
-                    { icon: Home,    title: "Logements vérifiés",      body: "Résidences, studios meublés, colocations — visités et validés par notre équipe locale." },
-                    { icon: MapPin,  title: "Proche de l'université",  body: "Nous priorisons les adresses à 20 min maximum du campus par les transports en commun." },
-                    { icon: Heart,   title: "Budget maîtrisé",         body: "Nous négocions directement avec les propriétaires pour obtenir les meilleurs tarifs." },
-                  ].map(({ icon: Icon, title, body }) => (
-                    <div key={title} className="flex gap-3">
-                      <div className="flex size-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#003366]/8">
-                        <Icon className="size-4 text-[#003366]" strokeWidth={1.75} aria-hidden />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[#003366] text-sm">{title}</p>
-                        <p className="mt-0.5 text-[0.8125rem] text-neutral-600">{body}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <Link href="/rendez-vous" className="btn-primary">
-                    Sécuriser le logement de mon enfant
-                    <ChevronRight className="size-[15px]" aria-hidden />
-                  </Link>
-                </div>
+                <Link href="/rendez-vous" className="btn btn-primary btn-arrow mc-reveal" style={{ marginTop: 32 }}>
+                  Sécuriser le logement
+                </Link>
               </div>
 
-              {/* Encart parent */}
-              <div className="rounded-3xl bg-[#F8F9FA] p-8 lg:p-10">
-                <div className="mb-5 flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-[#003366]">
-                    <ShieldCheck className="size-5 text-white" strokeWidth={2} aria-hidden />
-                  </div>
-                  <div>
-                    <p className="font-bold text-[#003366]">La promesse Mobility Canada</p>
-                    <p className="text-xs text-neutral-500">Pour chaque étudiant accompagné</p>
-                  </div>
-                </div>
-                <ul className="space-y-4">
-                  {[
-                    { n: "01", t: "Logement confirmé avant l'envol",          d: "Adresse, clés, contrat signé — avant que votre enfant prenne l'avion." },
-                    { n: "02", t: "Référent présent à l'aéroport",             d: "Quelqu'un que votre enfant connaît l'attend à l'arrivée. Jamais seul/e le Jour J." },
-                    { n: "03", t: "Rapport d'étape pour les parents",          d: "Email de confirmation à chaque étape clé : admission, visa, logement, arrivée." },
-                    { n: "04", t: "Check-in hebdomadaire — 4 premières semaines", d: "Notre équipe locale suit l'intégration et remonte les points de blocage." },
-                  ].map(({ n, t, d }) => (
-                    <li key={n} className="flex gap-4">
-                      <div className="flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-[#D80621] font-display text-[11px] font-bold text-white">{n}</div>
-                      <div>
-                        <p className="font-semibold text-[#003366] text-sm">{t}</p>
-                        <p className="mt-0.5 text-[0.8125rem] text-neutral-600">{d}</p>
-                      </div>
-                    </li>
-                  ))}
+              <div>
+                <ul className="log-steps mc-reveal">
+                  <li>
+                    <div>
+                      <h4>Définition des critères</h4>
+                      <p>Budget, proximité campus, type de logement — nous cadrons ensemble avant de chercher.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h4>Sélection &amp; visite virtuelle</h4>
+                      <p>Notre équipe locale visite les logements présélectionnés et vous envoie un compte-rendu détaillé.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h4>Réservation &amp; contrat</h4>
+                      <p>Nous négocions et signons le bail. Confirmation écrite remise avant le départ de France.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <h4>Accueil J+1</h4>
+                      <p>Remise des clés, installation, tour du quartier. Votre enfant est chez lui/elle dès le premier soir.</p>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -396,184 +204,342 @@ export default function EtudiantPage() {
         </section>
 
         {/* ══════════════════════════════════════════════
-            3. SERVICES
+            2b. TIMELINE ACADÉMIQUE
         ══════════════════════════════════════════════ */}
-        <section id="services-etudiant" aria-labelledby="services-etudiant-heading" className="bg-[#F8F9FA] py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="mb-14 text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#D80621]">Nos services</p>
-              <h2 id="services-etudiant-heading" className="mx-auto max-w-[30ch] font-display text-[2rem] font-bold leading-tight text-[#003366] sm:text-[2.5rem]">
-                Tout ce dont un étudiant a besoin.
-                <br />
-                <span className="text-[#003366]/70">Géré à sa place.</span>
+        <section className="e-acadtimeline" aria-labelledby="acadtl-heading">
+          <div className="mc-container">
+            <div className="e-acadtimeline-head mc-reveal">
+              <div className="eyebrow-row" style={{ color: "rgba(255,255,255,0.5)" }}>
+                <span className="dot" aria-hidden="true" />
+                <span className="eyebrow">Votre calendrier rentrée</span>
+              </div>
+              <h2 id="acadtl-heading" className="big-heading">
+                M-6 à J+0.<br />
+                <span className="muted">On gère tout.</span>
               </h2>
-              <p className="mx-auto mt-4 max-w-[55ch] text-neutral-600">
-                De l&apos;admission au diplôme, chaque démarche est prise en charge par un conseiller dédié.
-              </p>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {SERVICES.map((s) => <ServiceCard key={s.label} {...s} />)}
-            </div>
-            <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link href="/rendez-vous" className="btn-primary">
-                Démarrer mon dossier étudiant
-                <ChevronRight className="size-[15px]" aria-hidden />
-              </Link>
-              <p className="text-sm text-neutral-600">Consultation gratuite · Réponse sous 24h</p>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════
-            4. STATS
-        ══════════════════════════════════════════════ */}
-        <section aria-label="Chiffres clés" className="border-y border-neutral-100 bg-white py-12">
-          <div className="mx-auto max-w-5xl px-5 sm:px-8">
-            <dl className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-              {STATS.map(({ value, label, note }) => (
-                <div key={label} className="flex flex-col items-center text-center">
-                  <dt className="font-display text-[2rem] font-bold text-[#003366]">{value}</dt>
-                  <dd className="mt-1 text-sm font-semibold text-[#003366]/70">{label}</dd>
-                  <dd className="mt-0.5 text-[11px] text-neutral-500">{note}</dd>
+            <div className="e-acad-steps">
+              {[
+                {
+                  label: "M-6",
+                  title: "Lancement du dossier",
+                  desc: "Analyse du profil, sélection du programme et de l'établissement. Lancement des démarches d'admission.",
+                  tag: "Aujourd'hui",
+                },
+                {
+                  label: "M-4",
+                  title: "Admission & immigration",
+                  desc: "Lettre d'admission obtenue. CAQ et permis d'études déposés via nos partenaires agréés.",
+                  tag: "Frais payés",
+                },
+                {
+                  label: "M-2",
+                  title: "Logement sécurisé",
+                  desc: "Permis validé. Logement trouvé, bail signé. Confirmation écrite remise avant le départ.",
+                  tag: "Avant l'embarquement",
+                },
+                {
+                  label: "J+0",
+                  title: "Accueil & installation",
+                  desc: "Référent à l'aéroport. Clés remises, compte bancaire, RAMQ, NAS — opérationnel en 48h.",
+                  tag: "Jour J",
+                },
+              ].map(({ label, title, desc, tag }) => (
+                <div key={label} className="e-acad-step mc-reveal">
+                  <div className="e-acad-step-marker">
+                    <div className="e-acad-step-bubble">{label}</div>
+                    <div className="e-acad-step-line" aria-hidden="true" />
+                  </div>
+                  <h4>{title}</h4>
+                  <p>{desc}</p>
+                  <div className="acad-tag">{tag}</div>
                 </div>
               ))}
-            </dl>
+            </div>
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════
-            5. POURQUOI LE CANADA
+            3. SERVICES GRID
         ══════════════════════════════════════════════ */}
-        <section id="pourquoi-canada" aria-labelledby="why-canada-heading" className="bg-white py-20 lg:py-28">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="mb-12 max-w-2xl">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#D80621]">Pourquoi choisir le Canada</p>
-              <h2 id="why-canada-heading" className="mb-4 font-display text-[2rem] font-bold leading-tight text-[#003366] sm:text-[2.5rem]">
-                Pas juste une université.
-                <br />
-                <span className="text-[#003366]/70">Un tremplin vers une carrière internationale.</span>
+        <section className="svc" aria-labelledby="svc-heading">
+          <div className="mc-container">
+            <div className="svc-head mc-reveal">
+              <div className="eyebrow-row">
+                <span className="dot" aria-hidden="true" />
+                <span className="eyebrow">Nos services</span>
+              </div>
+              <h2 id="svc-heading" className="big-heading">
+                Tout ce dont<br />
+                <span className="muted">un étudiant a besoin.</span>
               </h2>
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {WHY_CANADA.map(({ icon: Icon, title, description, stat }) => (
-                <article key={title} className="rounded-2xl border border-neutral-100 bg-[#F8F9FA] p-6 transition-shadow duration-200 hover:shadow-md">
-                  <div className="mb-4 flex size-10 items-center justify-center rounded-xl bg-[#003366]/8">
-                    <Icon className="size-5 text-[#003366]" strokeWidth={1.75} aria-hidden />
-                  </div>
-                  <h3 className="mb-2 font-display text-[0.9375rem] font-bold text-[#003366]">{title}</h3>
-                  <p className="mb-3 text-[0.875rem] leading-relaxed text-neutral-600">{description}</p>
-                  <div className="flex items-center gap-2">
-                    <div className="size-1.5 rounded-full bg-[#D80621] flex-shrink-0" aria-hidden />
-                    <span className="text-[11px] font-semibold text-[#003366]/70">{stat}</span>
-                  </div>
-                </article>
+            <div className="svc-grid">
+              {[
+                { n: "01", title: "Validation du programme",     desc: "Analyse du profil académique, sélection du programme et de l&apos;établissement le mieux adapté à votre projet. Le bon choix dès le départ évite des mois de retard.", tag: "Inclus dans le pack" },
+                { n: "02", title: "Assistance immigration",      desc: "Nous vous orientons et vous accompagnons dans vos démarches : CAQ, permis d&apos;études, traduction de documents. Les dossiers sont déposés via nos avocats et para-juristes partenaires agréés.", tag: "Via partenaires agréés" },
+                { n: "03", title: "Accueil aéroport",            desc: "Un référent vous attend à l&apos;aéroport à votre atterrissage, vous accompagne à votre logement et vous remet les clés. Aucun taxi à chercher, aucune galère le jour J.", tag: "Inclus dans le pack" },
+                { n: "04", title: "Logement sécurisé",           desc: "Recherche via Kijiji, Centris et courtiers locaux selon vos critères et votre budget. Confirmation écrite avant l&apos;embarquement — vous partez en sachant où vous dormez.", tag: "Avant le départ" },
+                { n: "05", title: "Facilitateur d&apos;installation", desc: "2 jours sur place (16h) à vos côtés : ouverture de compte bancaire, RAMQ, NAS, repérage du quartier. Un accompagnement terrain pour que tout soit opérationnel en 48h.", tag: "2 jours / 16h inclus" },
+                { n: "06", title: "Relais famille",              desc: "Un numéro direct dédié aux parents. Rapport d&apos;étape à chaque validation, check-in hebdomadaire les 4 premières semaines. Vous êtes informés, quoi qu&apos;il arrive.", tag: "Numéro dédié parents" },
+              ].map(({ n, title, desc, tag }) => (
+                <div key={n} className="svc-card mc-reveal">
+                  <div className="n">{n}</div>
+                  <h3 dangerouslySetInnerHTML={{ __html: title }} />
+                  <p dangerouslySetInnerHTML={{ __html: desc }} />
+                  <div className="tag">{tag}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop: 48, display: "flex", gap: 16, flexWrap: "wrap" }}>
+              <Link href="/rendez-vous" className="btn btn-primary btn-arrow">
+                Démarrer mon dossier étudiant
+              </Link>
+              <p style={{ fontSize: 14, color: "var(--mc-mute)", alignSelf: "center" }}>
+                Consultation gratuite · Réponse sous 24h
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            3b. TARIFS
+        ══════════════════════════════════════════════ */}
+        <section className="pricing" aria-labelledby="pricing-heading">
+          <div className="mc-container">
+            <div className="mc-reveal" style={{ marginBottom: 40 }}>
+              <div className="eyebrow-row">
+                <span className="dot" aria-hidden="true" />
+                <span className="eyebrow">Tarification transparente</span>
+              </div>
+              <h2 id="pricing-heading" className="big-heading">
+                À la carte.<br />
+                <span className="muted">Aucune surprise.</span>
+              </h2>
+            </div>
+
+            <div className="pricing-grid">
+              <div className="pricing-pack mc-reveal">
+                <div className="pack-label eyebrow">Services à la carte</div>
+                <div className="pack-price">1 100<span>€</span></div>
+                <p className="pack-note">À partir de — chaque prestation est sélectionnable indépendamment. Facturation en euros (France &amp; DOM-TOM) ou en dollars canadiens.</p>
+                <ul className="pack-includes">
+                  <li>✓ Recherche de logement</li>
+                  <li>✓ Logement temporaire</li>
+                  <li>✓ Accueil aéroport</li>
+                  <li>✓ Journée d'installation sur place</li>
+                  <li>✓ Aide à l'ameublement</li>
+                  <li>✓ HELP LINE — assistance 1 an</li>
+                </ul>
+                <Link href="/rendez-vous" className="btn btn-primary btn-arrow" style={{ marginTop: 32 }}>
+                  Construire mon accompagnement
+                </Link>
+              </div>
+
+              <div className="pricing-extras mc-reveal">
+                <div className="pack-label eyebrow">Tarifs détaillés</div>
+                <table className="extras-table">
+                  <tbody>
+                    {[
+                      { label: "Recherche de logement",                          eur: "1 100€", cad: "1 600 CAD" },
+                      { label: "Logement temporaire",                            eur: "200€",   cad: "300 CAD" },
+                      { label: "Accueil aéroport",                               eur: "300€",   cad: "440 CAD" },
+                      { label: "Journée d'installation",                         eur: "500€",   cad: "750 CAD" },
+                      { label: "Orientation ville (4h)",                         eur: "250€",   cad: "—" },
+                      { label: "Démarches RAMQ + NAS",                           eur: "100€",   cad: "—" },
+                      { label: "Ouverture compte banque / tél / internet",       eur: "150€",   cad: "—" },
+                      { label: "Course IKEA + livraison logement",               eur: "—",      cad: "150 CAD" },
+                      { label: "Pack mobilier (lit/canapé/bureau/table/chaises)", eur: "—",     cad: "150 CAD" },
+                      { label: "HELP LINE — assistance mail & tél (1 an)",       eur: "180€",   cad: "260 CAD" },
+                    ].map(({ label, eur, cad }) => (
+                      <tr key={label}>
+                        <td>{label}</td>
+                        <td>{eur}</td>
+                        <td style={{ color: "var(--mc-mute)" }}>{cad}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            4. WHY CANADA
+        ══════════════════════════════════════════════ */}
+        <section className="why" data-hero-dark aria-labelledby="why-heading">
+          <div className="mc-container">
+            <div className="why-head mc-reveal">
+              <div className="eyebrow-row" style={{ color: "rgba(255,255,255,0.5)" }}>
+                <span className="dot" aria-hidden="true" />
+                <span className="eyebrow">Pourquoi le Canada</span>
+              </div>
+              <h2 id="why-heading" className="big-heading" style={{ color: "var(--mc-white)" }}>
+                Pas juste une université.<br />
+                <span style={{ color: "rgba(255,255,255,0.35)" }}>Un tremplin mondial.</span>
+              </h2>
+            </div>
+            <div className="why-grid">
+              {[
+                { k: "30+",    title: "Universités Top 500 mondial",    desc: "McGill, UBC, U de Montréal, Concordia — des diplômes reconnus dans 190 pays." },
+                { k: "−60 %",  title: "vs. le Royaume-Uni ou les USA",  desc: "40 à 60% moins cher pour un niveau de formation équivalent voire supérieur." },
+                { k: "24h",    title: "Par semaine de travail autorisé", desc: "Hors campus pendant les sessions, sans limite pendant les vacances." },
+                { k: "3 ans",  title: "PGWP après l&apos;obtention",    desc: "Permis de travail ouvert vers Express Entry et la résidence permanente." },
+                { k: "2ème",   title: "Ville francophone mondiale",      desc: "Montréal : l&apos;immersion en français qui booste l&apos;employabilité internationale." },
+                { k: "Top 10", title: "QS Best Student Cities",          desc: "Sécurité, qualité de vie, réseau alumni — Montréal et Vancouver au sommet." },
+              ].map(({ k, title, desc }) => (
+                <div key={k} className="why-item mc-reveal">
+                  <div className="k">{k}</div>
+                  <h3 dangerouslySetInnerHTML={{ __html: title }} />
+                  <p dangerouslySetInnerHTML={{ __html: desc }} />
+                </div>
               ))}
             </div>
           </div>
         </section>
 
         {/* ══════════════════════════════════════════════
-            6. TÉMOIGNAGE
+            5. SPLIT — Étudiant / Parents
         ══════════════════════════════════════════════ */}
-        <section aria-labelledby="temoignage-etudiant-heading" className="relative overflow-hidden bg-[#003366] py-16 lg:py-20">
-          <LogoMark className="pointer-events-none absolute -left-24 -bottom-10 h-[400px] w-auto text-white opacity-[0.04] select-none" />
-          <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-8 lg:px-10">
-            <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
-              <div>
-                <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white/65">Témoignage étudiant</p>
-                <h2 id="temoignage-etudiant-heading" className="sr-only">Témoignage</h2>
-                <blockquote className="mb-6 font-display text-[1.25rem] leading-[1.65] text-white sm:text-[1.4rem]">
-                  &ldquo;Je n&apos;aurais jamais cru que tout pouvait aller aussi vite. En moins de
-                  5 mois après mon premier appel, j&apos;étais dans mon appartement à Montréal,
-                  inscrite à Concordia. Ce qui me stressait le plus — trouver un logement avant
-                  d&apos;arriver — a été réglé en 10 jours.&rdquo;
-                </blockquote>
-                <footer className="flex items-center gap-4">
-                  <div className="flex size-12 items-center justify-center rounded-full bg-[#D80621] font-display text-sm font-bold text-white">AL</div>
-                  <div>
-                    <p className="font-semibold text-white">Anaïs L.</p>
-                    <p className="text-sm text-white/70">BTS → Bachelor Concordia · Bordeaux → Montréal · 2023</p>
-                  </div>
-                </footer>
-              </div>
-              <div className="flex flex-col gap-3 lg:min-w-[220px]">
-                {[
-                  { label: "Logement confirmé", value: "10 jours" },
-                  { label: "CAQ + permis",       value: "5 semaines" },
-                  { label: "Admission obtenue",  value: "Janvier 2023" },
-                  { label: "Arrivée Montréal",   value: "Août 2023" },
-                ].map(({ label, value }) => (
-                  <div key={label} className="rounded-xl border border-white/10 bg-white/6 px-4 py-3">
-                    <p className="text-[11px] text-white/60 uppercase tracking-wider">{label}</p>
-                    <p className="font-display font-bold text-white">{value}</p>
-                  </div>
-                ))}
-              </div>
+        <section className="split" aria-labelledby="split-heading">
+          <div className="mc-container">
+            <div className="eyebrow-row mc-reveal">
+              <span className="dot" aria-hidden="true" />
+              <span className="eyebrow">Deux perspectives, une seule solution</span>
             </div>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════
-            7. FAQ
-        ══════════════════════════════════════════════ */}
-        <section id="faq-etudiant" aria-labelledby="faq-etudiant-heading" className="bg-[#F8F9FA] py-20 lg:py-28">
-          <div className="mx-auto max-w-3xl px-5 sm:px-8">
-            <div className="mb-12 text-center">
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#D80621]">Questions fréquentes</p>
-              <h2 id="faq-etudiant-heading" className="font-display text-[1.75rem] font-bold text-[#003366] sm:text-[2.25rem]">
-                Les vraies questions
-                <br />
-                <span className="text-[#003366]/70">des étudiants et de leurs parents.</span>
-              </h2>
-            </div>
-            <FaqAccordion items={FAQ_ITEMS} />
-            <p className="mt-8 text-center text-sm text-neutral-600">
-              Votre situation est unique ?{" "}
-              <Link href="/rendez-vous" className="font-medium text-[#003366] underline underline-offset-2 hover:text-[#D80621]">
-                Parlez à un conseiller.
-              </Link>
-            </p>
-          </div>
-        </section>
-
-        {/* ══════════════════════════════════════════════
-            8. CTA FINAL
-        ══════════════════════════════════════════════ */}
-        <section aria-labelledby="cta-etudiant-heading" className="bg-white py-20 lg:py-24">
-          <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#003366]/15 bg-[#003366]/5 px-4 py-2">
-              <Globe className="size-4 text-[#003366]" strokeWidth={2} aria-hidden />
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#003366]">Consultation 100 % gratuite — Sans engagement</span>
-            </div>
-            <h2 id="cta-etudiant-heading" className="mb-5 font-display text-[2rem] font-bold leading-tight text-[#003366] sm:text-[2.75rem]">
-              L&apos;aventure canadienne commence.
-              <br />
-              <span className="text-[#D80621]">L&apos;inquiétude, elle, s&apos;arrête.</span>
+            <h2 id="split-heading" className="big-heading mc-reveal" style={{ marginBottom: 48 }}>
+              Pour vous.<br />
+              <span className="muted">Pour eux.</span>
             </h2>
-            <p className="mx-auto mb-10 max-w-[52ch] text-[1rem] leading-relaxed text-neutral-600">
-              En 30 minutes, nous analysons le profil, identifions les meilleures universités
-              et planifions le logement. Un plan d&apos;action clair pour l&apos;étudiant —
-              et une sérénité totale pour les parents.
-            </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Link href="/rendez-vous" className="btn-primary text-base !px-8 !py-4">
-                Prendre rendez-vous gratuitement
-                <ChevronRight className="size-4" aria-hidden />
-              </Link>
-              <a href="tel:+15143770857" className="btn-outline text-base !px-8 !py-4">
-                <Phone className="size-4" aria-hidden />
-                +1 (514) 377-0857
-              </a>
+            <div className="split-grid">
+              <div className="split-card to-you">
+                <div>
+                  <div className="label">Pour l&apos;étudiant</div>
+                  <h3>Concentrez-vous sur votre avenir.</h3>
+                  <p>Tout ce que vous n&apos;avez pas à gérer — pour que vous puissiez vous concentrer sur l&apos;essentiel : réussir vos études.</p>
+                  <ul>
+                    <li>✓ Dossier complet constitué à votre place</li>
+                    <li>✓ Logement trouvé avant votre arrivée</li>
+                    <li>✓ Accueil aéroport &amp; installation J+1</li>
+                    <li>✓ Compte bancaire &amp; RAMQ gérés</li>
+                    <li>✓ Référent disponible 90 jours</li>
+                  </ul>
+                </div>
+                <Link href="/rendez-vous" className="btn btn-light btn-arrow" style={{ marginTop: 32, alignSelf: "flex-start" }}>
+                  Démarrer mon dossier
+                </Link>
+              </div>
+              <div className="split-card to-parents">
+                <div>
+                  <div className="label">Pour les parents</div>
+                  <h3>Dormez sur vos deux oreilles.</h3>
+                  <p>Vous êtes en France. Votre enfant est au Canada. Vous méritez de savoir exactement ce qui se passe.</p>
+                  <ul>
+                    <li>→ Rapport d&apos;étape à chaque validation</li>
+                    <li>→ Logement confirmé avant l&apos;embarquement</li>
+                    <li>→ Check-in hebdomadaire — 4 premières semaines</li>
+                    <li>→ Numéro direct pour vous contacter</li>
+                    <li>→ Tableau de bord partagé en temps réel</li>
+                  </ul>
+                </div>
+                <Link href="/rendez-vous" className="btn btn-primary btn-arrow" style={{ marginTop: 32, alignSelf: "flex-start" }}>
+                  Parler à un conseiller
+                </Link>
+              </div>
             </div>
-            <ul className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-neutral-500">
-              {["✓  Logement sécurisé avant le départ", "✓  Réponse sous 24h", "✓  Consultants agréés CRIC", "✓  98 % de dossiers acceptés"].map((g) => (
-                <li key={g} className="font-medium">{g}</li>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            6. FAQ
+        ══════════════════════════════════════════════ */}
+        <section id="faq-etudiant" className="faq" aria-labelledby="faq-heading">
+          <div className="mc-container">
+            <div className="faq-wrap">
+              <div className="faq-head mc-reveal">
+                <div className="eyebrow-row">
+                  <span className="dot" aria-hidden="true" />
+                  <span className="eyebrow">Questions fréquentes</span>
+                </div>
+                <h2 id="faq-heading" className="big-heading">
+                  Les vraies<br />
+                  <span className="muted">questions.</span>
+                </h2>
+              </div>
+
+              {[
+                {
+                  q: "Quel est le calendrier idéal pour un départ à la prochaine rentrée ?",
+                  a: "Nous recommandons de démarrer 6 mois avant la rentrée (M-6). À M-4, la lettre d&apos;admission est obtenue et les frais immigration sont payés. À M-2, le permis d&apos;études est validé et le volet logement est activé. Le jour J, un référent vous attend à l&apos;aéroport.",
+                },
+                {
+                  q: "Gérez-vous directement les dossiers CAQ et permis d&apos;études ?",
+                  a: "Nous vous orientons, préparons et vérifions chaque document, mais les dossiers d&apos;immigration sont soumis via nos avocats et para-juristes partenaires agréés. Cette distinction est importante : vous bénéficiez d&apos;un encadrement légal rigoureux tout au long du processus.",
+                },
+                {
+                  q: "Quelle est la différence entre le CAQ et le permis d&apos;études ?",
+                  a: "Le CAQ est un document provincial (Québec uniquement), délivré par le Ministère de l&apos;Immigration du Québec. Le permis d&apos;études est un document fédéral délivré par IRCC. Pour étudier au Québec, les deux sont obligatoires. Nos partenaires les traitent simultanément.",
+                },
+                {
+                  q: "Comment le logement est-il sécurisé avant le départ ?",
+                  a: "Nous utilisons les plateformes locales (Kijiji, Centris) et notre réseau de courtiers pour trouver le logement adapté à votre budget et à votre campus. Une confirmation écrite est remise avant l&apos;embarquement — votre enfant sait où il dort dès son arrivée.",
+                },
+                {
+                  q: "Mon enfant peut-il travailler pendant ses études ?",
+                  a: "Oui. Les étudiants titulaires d&apos;un permis valide peuvent travailler jusqu&apos;à 24h/semaine hors campus durant les sessions et sans limite pendant les vacances. Ce droit est intégré dans le permis d&apos;études — aucune démarche supplémentaire.",
+                },
+                {
+                  q: "Combien coûte l&apos;accompagnement complet ?",
+                  a: "Nos services sont facturés à la carte, dès 1 100€ pour la recherche de logement. Chaque prestation est sélectionnable indépendamment : logement temporaire (200€), accueil aéroport (300€), journée d&apos;installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens.",
+                },
+              ].map(({ q, a }) => (
+                <details key={q} className="faq-item">
+                  <summary dangerouslySetInnerHTML={{ __html: q }} />
+                  <p dangerouslySetInnerHTML={{ __html: a }} />
+                </details>
               ))}
-            </ul>
+
+              <p style={{ marginTop: 32, fontSize: 14, color: "var(--mc-mute)" }}>
+                Votre situation est unique ?{" "}
+                <Link href="/rendez-vous" style={{ color: "var(--mc-ink)", fontWeight: 600, textDecoration: "underline" }}>
+                  Parlez à un conseiller.
+                </Link>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════════════════════════════════════
+            7. CTA BAR
+        ══════════════════════════════════════════════ */}
+        <section className="cta-bar" data-hero-dark aria-labelledby="cta-etudiant-heading">
+          <div className="mc-container">
+            <div className="cta-bar-grid">
+              <div>
+                <div className="eyebrow-row" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  <span className="dot" aria-hidden="true" />
+                  <span className="eyebrow">Consultation 100% gratuite</span>
+                </div>
+                <h2 id="cta-etudiant-heading">
+                  L&apos;aventure commence.<br />
+                  <em>L&apos;inquiétude s&apos;arrête.</em>
+                </h2>
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                <Link href="/rendez-vous" className="btn btn-light btn-arrow">
+                  Prendre rendez-vous
+                </Link>
+                <a href="tel:+15143770857" className="btn btn-ghost-dark">
+                  +1 (514) 377-0857
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
       </main>
+
       <Footer />
     </>
   );

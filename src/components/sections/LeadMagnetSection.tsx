@@ -130,7 +130,7 @@ export default function LeadMagnetSection() {
             {/* Description */}
             <p className="mb-8 text-[1.0625rem] leading-relaxed text-neutral-500">
               Tout ce qu&apos;il faut savoir avant de faire vos valises. Rédigé par
-              nos consultants agréés CRIC, ce guide de 28 pages vous accompagne
+              notre équipe d'experts, ce guide de 28 pages vous accompagne
               étape par étape dans votre projet d&apos;installation.
             </p>
 

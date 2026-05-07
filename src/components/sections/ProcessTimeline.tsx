@@ -44,7 +44,7 @@ const STEPS: Step[] = [
     icon: FileCheck,
     title: "Dépôt",
     description:
-      "Nos consultants agréés CRIC préparent et soumettent votre dossier officiel aux autorités canadiennes. Chaque pièce est vérifiée pour zéro motif de refus.",
+      "Nos experts préparent et soumettent votre dossier officiel aux autorités canadiennes. Chaque pièce est vérifiée pour zéro motif de refus.",
     detail: "Suivi en temps réel",
   },
   {
