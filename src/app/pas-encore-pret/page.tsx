@@ -245,7 +245,7 @@ export default function PasEncorePretPage() {
           {/* CTA secondaire Instagram */}
           <div style={{ marginTop: 32 }}>
             <a
-              href="https://www.instagram.com/mobilitycanada"
+              href="https://www.instagram.com/mobility.canada?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
               style={{

@@ -5,17 +5,17 @@ import Footer from "@/components/layout/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Immigration Professionnelle Canada — EIMT, Permis de Travail, ROI RH | Mobility Canada",
+  title: "Mobilité RH Canada — Coordination Relocalisation B2B | Mobility Canada",
   description:
-    "Réduisez votre time-to-hire, éliminez votre risque IRCC. EIMT, permis de travail fermés, transferts intra-compagnie. Senior Advisor dédié. Devis B2B sous 48h.",
+    "Coordonnez la relocalisation de vos talents au Canada : cadrage, préparation documentaire, logement, installation et suivi RH. Devis B2B sous 48h.",
   keywords: [
-    "immigration professionnelle Canada", "recrutement travailleurs étrangers",
-    "EIMT Canada service", "permis de travail employeur", "transfert intra-compagnie Canada",
-    "mobilité RH internationale", "conformité employeur immigration",
+    "mobilité RH Canada", "relocalisation salariés Canada",
+    "coordination mobilité internationale", "installation talents Montréal",
+    "mobilité RH internationale", "accompagnement relocalisation entreprise",
   ],
   openGraph: {
     title: "Recrutez en semaines, pas en mois | Mobility Canada B2B",
-    description: "EIMT, permis de travail, conformité IRCC. De la décision à la prise de poste en 9 semaines.",
+    description: "Coordination documentaire, logement et onboarding opérationnel. De la décision à la prise de poste, avec un interlocuteur dédié.",
   },
 };
 
@@ -36,7 +36,7 @@ export default function EntreprisePage() {
               <div>
                 <div className="eyebrow-row" style={{ color: "rgba(255,255,255,0.42)" }}>
                   <span className="dot" aria-hidden="true" />
-                  <span className="eyebrow">Solutions B2B — Performance &amp; Conformité</span>
+                  <span className="eyebrow">Solutions B2B — Mobilité &amp; Relocalisation</span>
                 </div>
                 <h1 id="entreprise-h1">
                   Recrutez en semaines,<br />
@@ -44,16 +44,16 @@ export default function EntreprisePage() {
                 </h1>
                 <p className="b-hero-desc">
                   Chaque semaine de blocage sur un recrutement international représente un coût direct
-                  pour votre organisation. Mobility Canada réduit votre time-to-hire, élimine votre
-                  risque de non-conformité IRCC et fait de la mobilité internationale un avantage
-                  compétitif, pas un frein opérationnel.
+                  pour votre organisation. Mobility Canada coordonne les étapes clés de la relocalisation,
+                  du cadrage documentaire à l&apos;installation terrain, pour faire de la mobilité
+                  internationale un avantage compétitif, pas un frein opérationnel.
                 </p>
                 <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  <Link href="/rendez-vous" className="btn btn-light btn-arrow">
+                  <Link href="/rendez-vous/entreprise" className="btn btn-light btn-arrow">
                     Consultation B2B
                   </Link>
                   <a href="#process-b" className="btn btn-ghost-dark">
-                    EIMT → 9 semaines
+                    Voir le process
                   </a>
                 </div>
               </div>
@@ -65,9 +65,9 @@ export default function EntreprisePage() {
                 </div>
                 <div className="b-kpi-grid" role="list" aria-label="Indicateurs clés">
                   {[
-                    { metric: "9", u: " sem", label: "EIMT → prise de poste" },
-                    { metric: "48h", u: "", label: "Pré-qualification ICT" },
-                    { metric: "5j", u: "", label: "Audit IRCC livré" },
+                    { metric: "9", u: " sem", label: "Décision → prise de poste" },
+                    { metric: "48h", u: "", label: "Cadrage initial" },
+                    { metric: "5j", u: "", label: "Plan de mobilité livré" },
                     { metric: "0h", u: "", label: "Démarche pour votre DRH" },
                   ].map(({ metric, u, label }) => (
                     <div key={label} className="b-kpi-cell" role="listitem">
@@ -77,7 +77,7 @@ export default function EntreprisePage() {
                   ))}
                 </div>
                 <Link
-                  href="/rendez-vous"
+                  href="/rendez-vous/entreprise"
                   className="btn btn-accent btn-arrow"
                   style={{ width: "100%", justifyContent: "center" }}
                 >
@@ -114,27 +114,27 @@ export default function EntreprisePage() {
               {[
                 {
                   label: "Recrutement international",
-                  title: "EIMT — Zéro risque de refus",
-                  desc: "Nous construisons un dossier EIMT qui résiste à l&apos;analyse de Service Canada : justification économique béton, annonces conformes, délais maîtrisés.",
-                  items: ["Analyse du poste &amp; justification", "Annonces conformes rédigées", "Dépôt &amp; suivi quotidien", "Délai moyen : 3–4 semaines"],
+                  title: "Cadrage réglementaire",
+                  desc: "Nous préparons le cadrage du poste, les pièces RH et la chronologie, puis coordonnons avec les professionnels habilités lorsque le dossier l&apos;exige.",
+                  items: ["Analyse du poste &amp; justification", "Pièces RH structurées", "Coordination des intervenants", "Planning des étapes clarifié"],
                 },
                 {
                   label: "Time-to-hire",
-                  title: "Permis de travail en semaines",
-                  desc: "Permis nominatifs traités avec le taux d&apos;acceptation le plus élevé du secteur. Chaque semaine gagnée est une semaine de productivité récupérée.",
-                  items: ["Vérification documentaire totale", "Traitement prioritaire disponible", "Relances IRCC proactives", "Reporting hebdomadaire DRH"],
+                  title: "Dossier collaborateur prêt",
+                  desc: "Chaque document utile est identifié, vérifié et organisé pour fluidifier la suite du parcours avec les interlocuteurs compétents.",
+                  items: ["Vérification documentaire", "Liste des pièces manquantes", "Coordination des échanges", "Reporting hebdomadaire DRH"],
                 },
                 {
                   label: "Mobilité interne",
-                  title: "Transfert intra-compagnie (ICT)",
-                  desc: "Déplacez vos talents stratégiques entre filiales sans passer par l&apos;EIMT. Pré-qualification en 48h, votre cadre opérationnel en 6 semaines.",
-                  items: ["Exempt d&apos;EIMT", "Pré-qualification 48h", "Dépôt prioritaire", "ROI immédiat"],
+                  title: "Mobilité intra-groupe",
+                  desc: "Structurez les transferts de talents entre entités avec un cadrage clair des rôles, documents, délais et responsabilités.",
+                  items: ["Cadrage 48h", "Documents groupe", "Coordination partenaire", "Onboarding planifié"],
                 },
                 {
-                  label: "Conformité",
-                  title: "Audit IRCC",
-                  desc: "Un contrôle IRCC non anticipé peut coûter des dizaines de milliers d&apos;euros. Nous auditons vos processus avant qu&apos;IRCC ne le fasse.",
-                  items: ["Revue des dossiers actifs", "Identification des risques", "Plan de remédiation", "Rapport sous 5 jours"],
+                  label: "Préparation",
+                  title: "Audit mobilité RH",
+                  desc: "Nous revoyons vos processus internes de mobilité pour repérer les frictions, responsabilités floues et pièces manquantes avant le lancement.",
+                  items: ["Revue des dossiers actifs", "Identification des frictions", "Plan d&apos;action", "Rapport sous 5 jours"],
                 },
                 {
                   label: "Productivité J+1",
@@ -162,7 +162,7 @@ export default function EntreprisePage() {
               ))}
             </div>
             <div style={{ marginTop: 48, display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <Link href="/rendez-vous" className="btn btn-primary btn-arrow">
+              <Link href="/rendez-vous/entreprise" className="btn btn-primary btn-arrow">
                 Demander un devis B2B
               </Link>
               <p style={{ fontSize: 14, color: "var(--mc-mute)", alignSelf: "center" }}>
@@ -173,7 +173,7 @@ export default function EntreprisePage() {
         </section>
 
         {/* ══════════════════════════════════════════════
-            4. PROCESS-B — De l'EIMT à la prise de poste
+            4. PROCESS-B — De la décision à la prise de poste
         ══════════════════════════════════════════════ */}
         <section id="process-b" className="process-b" aria-labelledby="process-b-heading">
           <div className="mc-container">
@@ -188,14 +188,14 @@ export default function EntreprisePage() {
               </h2>
               <p style={{ fontSize: 17, color: "var(--mc-mute)", lineHeight: 1.6, maxWidth: "54ch", marginTop: 20 }}>
                 La mobilité internationale mobilise en moyenne 40 heures de travail administratif par
-                dossier. Nous absorbons cette charge entièrement, avec un reporting transparent à chaque étape.
+                collaborateur. Nous coordonnons cette charge avec un reporting transparent à chaque étape.
               </p>
             </div>
             <div className="process-b-list">
               {[
                 { n: "S1",    title: "Brief stratégique",         desc: "Analyse du poste, profil candidat, voie d&apos;entrée optimale. Plan d&apos;action livré en 48h." },
-                { n: "S2–4",  title: "EIMT ou pré-qualification", desc: "Dossier complet déposé, coordination Service Canada, suivi quotidien." },
-                { n: "S5–7",  title: "Permis de travail",         desc: "Dépôt IRCC, vérification documentaire totale, relances proactives." },
+                { n: "S2–4",  title: "Préparation documentaire", desc: "Pièces RH, justificatifs, responsabilités et calendrier alignés avec les intervenants habilités." },
+                { n: "S5–7",  title: "Coordination du parcours",  desc: "Suivi documentaire, échanges centralisés et reporting proactif pour votre équipe RH." },
                 { n: "S8–9",  title: "Onboarding J+1",            desc: "Logement, NAS, compte bancaire, RAMQ. Opérationnel dès le premier jour." },
                 { n: "S10+",  title: "Suivi &amp; renouvellement", desc: "Dashboard KPI, alertes de renouvellement, accompagnement vers la RP si souhaité." },
               ].map(({ n, title, desc }) => (
@@ -230,9 +230,9 @@ export default function EntreprisePage() {
                 {[
                   { criteria: "Charge admin. par dossier", value: "~40h" },
                   { criteria: "Time-to-hire moyen", value: "9 mois" },
-                  { criteria: "Risque de refus IRCC", value: "Élevé" },
+                  { criteria: "Risque de friction documentaire", value: "Élevé" },
                   { criteria: "Visibilité DRH", value: "Nulle" },
-                  { criteria: "Coût d'une erreur de conformité", value: "> 20 000€" },
+                  { criteria: "Coût d'une erreur de coordination", value: "> 20 000€" },
                 ].map(({ criteria, value }) => (
                   <div key={criteria} className="b-roi-item">
                     <span className="roi-criteria">{criteria}</span>
@@ -245,9 +245,9 @@ export default function EntreprisePage() {
                 {[
                   { criteria: "Charge admin. pour votre DRH", value: "0h" },
                   { criteria: "De la décision à la prise de poste", value: "9 sem." },
-                  { criteria: "Taux de refus sur dossiers traités", value: "0 %" },
+                  { criteria: "Dossiers préparés et suivis", value: "Centralisés" },
                   { criteria: "Reporting", value: "Temps réel" },
-                  { criteria: "Garantie conformité IRCC", value: "Incluse" },
+                  { criteria: "Coordination partenaires habilités", value: "Incluse" },
                 ].map(({ criteria, value }) => (
                   <div key={criteria} className="b-roi-item">
                     <span className="roi-criteria">{criteria}</span>
@@ -257,7 +257,7 @@ export default function EntreprisePage() {
               </div>
             </div>
             <div style={{ marginTop: 32, display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <Link href="/rendez-vous" className="btn btn-primary btn-arrow">
+              <Link href="/rendez-vous/entreprise" className="btn btn-primary btn-arrow">
                 Calculer mon ROI — Consultation gratuite
               </Link>
             </div>
@@ -298,7 +298,7 @@ export default function EntreprisePage() {
                 </h2>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <Link href="/rendez-vous" className="btn btn-light btn-arrow">
+                <Link href="/rendez-vous/entreprise" className="btn btn-light btn-arrow">
                   Demander une consultation B2B
                 </Link>
                 <a href="tel:+15143770857" className="btn btn-ghost-dark">

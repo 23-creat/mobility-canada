@@ -3,6 +3,7 @@ import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import CookieBanner from "@/components/layout/CookieBanner";
 import UtmCapture from "@/components/analytics/UtmCapture";
+import QualificationQuestionnaire from "@/components/forms/QualificationQuestionnaire";
 
 export const metadata: Metadata = {
   title: "Réserve ton appel gratuit — Mobility Canada",
@@ -255,7 +256,7 @@ export default function ReserverTonAppelPage() {
           </div>
         </section>
 
-        {/* ── FORMULAIRE TALLY ── */}
+        {/* ── QUESTIONNAIRE ── */}
         <section style={{ padding: "72px 0 48px", background: "var(--mc-white)" }} aria-label="Formulaire de réservation">
           <div className="mc-container" style={{ maxWidth: 780 }}>
             <div className="mc-reveal" style={{ textAlign: "center", marginBottom: 40 }}>
@@ -270,18 +271,11 @@ export default function ReserverTonAppelPage() {
                 Réserve ton appel gratuit
               </h2>
               <p style={{ fontSize: 15, color: "var(--mc-mute)" }}>
-                2 minutes pour compléter le formulaire. On te rappelle sous 24h.
+                2 minutes, 4 questions, puis tu choisis ton créneau.
               </p>
             </div>
             <div className="mc-reveal">
-              <iframe
-                src="https://tally.so/r/vGEjKl"
-                width="100%"
-                height="640"
-                title="Réserver un appel de 15 minutes avec Mobility Canada"
-                style={{ border: "none", borderRadius: 16, display: "block", background: "var(--mc-paper)" }}
-                loading="lazy"
-              />
+              <QualificationQuestionnaire />
             </div>
           </div>
         </section>

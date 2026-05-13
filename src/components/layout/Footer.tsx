@@ -25,7 +25,7 @@ export default function Footer() {
                 <a href="tel:+15143770857">+1 (514) 377-0857</a>
               </li>
               <li>
-                <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>Paris, France &amp; Montréal, Canada</span>
+                <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 13 }}>Paris, France métropolitaine &amp; Montréal, Canada</span>
               </li>
             </ul>
           </div>

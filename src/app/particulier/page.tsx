@@ -7,15 +7,15 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = {
   title: "S'installer au Canada — Guichet Unique, Zéro Démarche | Mobility Canada",
   description:
-    "Un seul interlocuteur gère tout : résidence permanente, logement, école, banque, santé. Supprimez totalement la charge mentale de votre installation au Canada.",
+    "Un seul interlocuteur coordonne votre installation au Canada : logement, école, banque, santé et démarches administratives avec des professionnels habilités.",
   keywords: [
-    "immigration Canada famille", "résidence permanente Canada",
-    "relocalisation Montréal", "guichet unique immigration",
+    "relocalisation famille Canada", "installation famille Montréal",
+    "relocalisation Montréal", "guichet unique relocalisation",
     "s'installer au Canada", "accompagnement installation Canada",
   ],
   openGraph: {
     title: "Zéro Démarche. Un Seul Interlocuteur. | Mobility Canada",
-    description: "Résidence permanente, logement, école, banque — votre conseiller dédié porte la charge mentale à votre place.",
+    description: "Logement, école, banque, santé et coordination administrative — votre conseiller dédié porte la charge mentale à votre place.",
   },
 };
 
@@ -25,18 +25,18 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Combien de temps faut-il pour obtenir la résidence permanente au Canada ?",
-      acceptedAnswer: { "@type": "Answer", text: "Le délai varie selon le programme : Express Entry traite les dossiers en 6 à 8 mois en moyenne. Le Programme de l'expérience québécoise (PEQ) peut être plus rapide (4 à 6 mois) si vous êtes déjà sur place." },
+      name: "Pouvez-vous coordonner les démarches administratives d'installation ?",
+      acceptedAnswer: { "@type": "Answer", text: "Oui. Mobility Canada coordonne les étapes de relocalisation et peut vous orienter vers des professionnels habilités pour les volets réglementés. Nous ne faisons pas de représentation légale directe." },
     },
     {
       "@type": "Question",
       name: "Peut-on s'installer au Canada sans avoir d'emploi au préalable ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui, absolument. La majorité de nos clients arrivent sans offre d'emploi. Des programmes comme Express Entry évaluent votre potentiel sur la base de vos compétences et de votre formation." },
+      acceptedAnswer: { "@type": "Answer", text: "Selon votre situation, plusieurs parcours peuvent exister. Nous aidons à cadrer le projet d'installation et à identifier les bons interlocuteurs pour les démarches réglementées." },
     },
     {
       "@type": "Question",
       name: "Le conjoint peut-il travailler dès l'arrivée ?",
-      acceptedAnswer: { "@type": "Answer", text: "Oui. Dans le cadre des demandes de résidence permanente, le conjoint reçoit un permis de travail ouvert (PTO) lui permettant d'exercer toute activité professionnelle sans restriction." },
+      acceptedAnswer: { "@type": "Answer", text: "Cela dépend du statut et du dossier familial. Nous clarifions les étapes avec vous et coordonnons, si nécessaire, avec des professionnels habilités." },
     },
   ],
 };
@@ -66,12 +66,12 @@ export default function ParticulierPage() {
                   <em>On s&apos;occupe du reste.</em>
                 </h1>
                 <p>
-                  Résidence permanente, logement, école, banque, santé, permis de travail du conjoint —
-                  votre conseiller dédié porte l&apos;intégralité de la charge administrative à votre place.
-                  Vous n&apos;ouvrez plus jamais un formulaire IRCC.
+                  Logement, école, banque, santé et coordination administrative —
+                  votre conseiller dédié porte la charge mentale de l&apos;installation à votre place.
+                  Pour les démarches réglementées, nous coordonnons avec des professionnels habilités.
                 </p>
                 <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  <Link href="/rendez-vous" className="btn btn-primary btn-arrow">
+                  <Link href="/rendez-vous/particulier" className="btn btn-primary btn-arrow">
                     Déléguer mon installation
                   </Link>
                   <a href="#pathways" className="btn btn-ghost">
@@ -84,12 +84,12 @@ export default function ParticulierPage() {
                 <div className="n">M-6</div>
                 <p>Délai recommandé pour démarrer votre accompagnement avant la date d&apos;installation visée.</p>
                 <ul>
-                  <li><span>Résidence permanente</span><span>Express Entry</span></li>
+                  <li><span>Projet d&apos;installation</span><span>Cadrage</span></li>
                   <li><span>Logement sécurisé</span><span>Avant l&apos;arrivée</span></li>
                   <li><span>École des enfants</span><span>Confirmée J-0</span></li>
                   <li><span>Compte bancaire</span><span>À distance</span></li>
                   <li><span>Couverture santé</span><span>Dès J+1</span></li>
-                  <li><span>Permis conjoint</span><span>Inclus dans le dossier</span></li>
+                  <li><span>Démarches réglementées</span><span>Coordonnées</span></li>
                 </ul>
               </aside>
             </div>
@@ -99,7 +99,7 @@ export default function ParticulierPage() {
           <div className="mc-container">
             <div className="p-hero-footer" role="list" aria-label="Chiffres clés">
               {[
-                { n: "6 mois", l: "Express Entry moyen" },
+                { n: "M-6", l: "Délai recommandé" },
                 { n: "0",      l: "Formulaire à remplir" },
                 { n: "100 %",  l: "Charge déléguée" },
                 { n: "J+1",    l: "Opérationnel à l'arrivée" },
@@ -115,51 +115,51 @@ export default function ParticulierPage() {
 
 
         {/* ══════════════════════════════════════════════
-            2. PATHWAYS — programmes d'immigration
+            2. PATHWAYS — coordination administrative
         ══════════════════════════════════════════════ */}
         <section id="pathways" className="pathways" aria-labelledby="pathways-heading">
           <div className="mc-container">
             <div className="pathways-head mc-reveal">
               <div className="eyebrow-row">
                 <span className="dot" aria-hidden="true" />
-                <span className="eyebrow">Programmes d&apos;immigration</span>
+                <span className="eyebrow">Coordination administrative</span>
               </div>
               <h2 id="pathways-heading" className="big-heading">
-                Votre chemin<br />
-                <span className="muted">vers la résidence permanente.</span>
+                Votre arrivée<br />
+                <span className="muted">sans charge mentale.</span>
               </h2>
             </div>
 
             {[
               {
-                tag: "Fédéral",
-                title: "Express Entry",
-                desc: "Système de points basé sur le profil (âge, diplôme, expérience, langue). La voie la plus rapide pour les profils qualifiés.",
-                dur: "6–8 mois",
+                tag: "Cadrage",
+                title: "Audit du projet",
+                desc: "Objectif d'installation, calendrier, composition familiale, budget et étapes prioritaires.",
+                dur: "M-6",
               },
               {
-                tag: "Québec",
-                title: "Programme de l&apos;Expérience Québécoise (PEQ)",
-                desc: "Conçu pour les travailleurs qualifiés et diplômés d&apos;un établissement québécois déjà présents au Québec.",
-                dur: "4–6 mois",
+                tag: "Coordination",
+                title: "Démarches réglementées",
+                desc: "Mise en relation et coordination avec les professionnels habilités lorsque votre dossier le nécessite.",
+                dur: "Selon dossier",
               },
               {
-                tag: "Québec",
-                title: "Programme Régulier des Travailleurs Qualifiés",
-                desc: "Pour les profils avec une offre d&apos;emploi validée ou une expérience professionnelle reconnue au Québec.",
-                dur: "12–18 mois",
+                tag: "Terrain",
+                title: "Logement familial",
+                desc: "Recherche de logement adaptée au quartier, à l'école, au budget et au calendrier d'arrivée.",
+                dur: "Avant départ",
               },
               {
-                tag: "Fédéral",
-                title: "Regroupement familial",
-                desc: "Rejoindre un membre de sa famille déjà résident permanent ou citoyen canadien.",
-                dur: "12–24 mois",
+                tag: "Famille",
+                title: "École et santé",
+                desc: "Préparation des inscriptions, assurances de transition et repères administratifs des premiers jours.",
+                dur: "J-0 / J+1",
               },
               {
-                tag: "Stratégique",
-                title: "Visa de startup &amp; entrepreneur",
-                desc: "Pour les entrepreneurs avec un projet d&apos;entreprise innovant soutenu par un organisme désigné canadien.",
-                dur: "Variable",
+                tag: "Installation",
+                title: "Banque et quotidien",
+                desc: "Ouverture de compte, téléphone, NAS, repérage du quartier et organisation de l'arrivée.",
+                dur: "J+1",
               },
             ].map(({ tag, title, desc, dur }) => (
               <div key={title} className="path-row mc-reveal">
@@ -169,7 +169,7 @@ export default function ParticulierPage() {
                   <p>{desc}</p>
                 </div>
                 <div className="dur">{dur}</div>
-                <Link href="/rendez-vous" className="arrow" aria-label={`En savoir plus sur ${title}`}>→</Link>
+                <Link href="/rendez-vous/particulier" className="arrow" aria-label={`En savoir plus sur ${title}`}>→</Link>
               </div>
             ))}
           </div>
@@ -192,7 +192,7 @@ export default function ParticulierPage() {
             </div>
             <div className="family-grid">
               {[
-                { n: "01", title: "Logement sécurisé",    desc: "Bail négocié et signé depuis la France. Adresse confirmée avant l&apos;arrivée.", tag: "Avant le départ" },
+                { n: "01", title: "Logement sécurisé",    desc: "Bail négocié et signé depuis la France métropolitaine ou les DOM-TOM. Adresse confirmée avant l&apos;arrivée.", tag: "Avant le départ" },
                 { n: "02", title: "École des enfants",     desc: "Inscriptions, choix du quartier scolaire, démarches administratives — bouclés avant l&apos;arrivée.", tag: "Francophone ou anglophone" },
                 { n: "03", title: "Compte bancaire",       desc: "Ouverture à distance auprès des grandes banques canadiennes. Votre carte arrive avant vous.", tag: "Grandes banques partenaires" },
                 { n: "04", title: "Couverture santé",      desc: "RAMQ + assurance de transition pour les 3 premiers mois. Famille entière couverte dès J+1.", tag: "Zéro rupture de couverture" },
@@ -264,12 +264,12 @@ export default function ParticulierPage() {
               </div>
               {[
                 {
-                  q: "Combien de temps faut-il pour obtenir la résidence permanente ?",
-                  a: "Le délai varie selon le programme : Express Entry traite les dossiers en 6 à 8 mois en moyenne. Le PEQ peut être plus rapide (4 à 6 mois) si vous êtes déjà au Québec. Nos consultants analysent votre profil pour identifier le chemin le plus court.",
+                  q: "Pouvez-vous coordonner les démarches administratives d&apos;installation ?",
+                  a: "Oui. Mobility Canada coordonne les étapes de relocalisation et peut vous orienter vers des professionnels habilités pour les volets réglementés. Nous ne faisons pas de représentation légale directe.",
                 },
                 {
                   q: "Peut-on s&apos;installer au Canada sans avoir d&apos;emploi au préalable ?",
-                  a: "Oui, absolument. La majorité de nos clients arrivent sans offre d&apos;emploi. Des programmes comme Express Entry évaluent votre potentiel sur la base de vos compétences et de votre formation. Nous optimisons votre score CRS.",
+                  a: "Selon votre situation, plusieurs parcours peuvent exister. Nous aidons à cadrer le projet d&apos;installation et à identifier les bons interlocuteurs pour les démarches réglementées.",
                 },
                 {
                   q: "Nos enfants peuvent-ils aller à l&apos;école francophone ?",
@@ -277,7 +277,7 @@ export default function ParticulierPage() {
                 },
                 {
                   q: "Le conjoint peut-il travailler dès l&apos;arrivée ?",
-                  a: "Oui. Dans le cadre des demandes de résidence permanente, le conjoint reçoit un permis de travail ouvert (PTO) lui permettant d&apos;exercer toute activité professionnelle sans restriction. Nous intégrons cette démarche dans votre dossier dès le départ.",
+                  a: "Cela dépend du statut et du dossier familial. Nous clarifions les étapes avec vous et coordonnons, si nécessaire, avec des professionnels habilités.",
                 },
                 {
                   q: "Comment se passe la couverture médicale à l&apos;arrivée ?",
@@ -310,7 +310,7 @@ export default function ParticulierPage() {
                 </h2>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <Link href="/rendez-vous" className="btn btn-light btn-arrow">
+                <Link href="/rendez-vous/particulier" className="btn btn-light btn-arrow">
                   Déléguer mon installation
                 </Link>
                 <a href="tel:+15143770857" className="btn btn-ghost-dark">

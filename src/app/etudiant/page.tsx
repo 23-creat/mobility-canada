@@ -5,17 +5,17 @@ import Footer from "@/components/layout/Footer";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Études au Canada — Accompagnement étudiant à partir de 1 100€, Logement Sécurisé | Mobility Canada",
+  title: "Études au Canada — Accompagnement étudiant à partir de 1 200€, Logement Sécurisé | Mobility Canada",
   description:
-    "Accompagnement sur mesure pour étudier au Canada : validation programme, assistance immigration via avocats partenaires, logement sécurisé avant l'arrivée, accueil aéroport. Services à la carte dès 1 100€.",
+    "Accompagnement sur mesure pour étudier au Canada : validation programme, coordination immigration avec un consultant agréé CICC, logement sécurisé avant l'arrivée, accueil aéroport. Services à la carte dès 1 200€.",
   keywords: [
     "visa étudiant Canada", "CAQ Québec", "permis d'études Canada",
-    "logement étudiant Montréal", "étudier au Canada depuis France",
+    "logement étudiant Montréal", "étudier au Canada depuis France métropolitaine",
     "accompagnement étudiant Canada", "parents étudiant Canada",
   ],
   openGraph: {
-    title: "Étudier au Canada | Accompagnement à la carte dès 1 100€ — Mobility Canada",
-    description: "Validation programme, assistance immigration, logement, accueil aéroport, installation. Services à la carte adaptés à votre projet.",
+    title: "Étudier au Canada | Accompagnement à la carte dès 1 200€ — Mobility Canada",
+    description: "Validation programme, assistance immigration, logement, accueil aéroport, installation. Services à la carte adaptés à ton projet.",
   },
 };
 
@@ -26,12 +26,12 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "Quel est le calendrier idéal pour un départ à la prochaine rentrée ?",
-      acceptedAnswer: { "@type": "Answer", text: "Nous recommandons de démarrer 6 mois avant la rentrée (M-6). À M-4, la lettre d'admission est obtenue et les frais immigration sont payés. À M-2, le permis d'études est validé et le volet logement est activé. Le jour J, un référent vous attend à l'aéroport." },
+      acceptedAnswer: { "@type": "Answer", text: "On recommande de démarrer 6 mois avant la rentrée (M-6). À M-4, ta lettre d'admission est obtenue et les frais immigration sont payés. À M-2, ton permis d'études est validé et le volet logement est activé. Le jour J, un référent t'attend à l'aéroport." },
     },
     {
       "@type": "Question",
       name: "Gérez-vous directement les dossiers CAQ et permis d'études ?",
-      acceptedAnswer: { "@type": "Answer", text: "Nous vous orientons, préparons et vérifions chaque document, mais les dossiers d'immigration sont soumis via nos avocats et para-juristes partenaires agréés. Vous bénéficiez d'un encadrement légal rigoureux tout au long du processus." },
+      acceptedAnswer: { "@type": "Answer", text: "On t'oriente, prépare et vérifie chaque document, mais les dossiers d'immigration sont traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC. Tu bénéficies d'un encadrement rigoureux tout au long du processus." },
     },
     {
       "@type": "Question",
@@ -46,7 +46,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "Combien coûte l'accompagnement complet ?",
-      acceptedAnswer: { "@type": "Answer", text: "Nos services sont facturés à la carte, dès 1 100€ pour la recherche de logement. Chaque prestation est indépendante : accueil aéroport (300€), journée d'installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens." },
+      acceptedAnswer: { "@type": "Answer", text: "Nos services sont facturés à la carte, dès 1 200€ pour la recherche de logement. Chaque prestation est indépendante : accueil aéroport (300€), journée d'installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens." },
     },
   ],
 };
@@ -71,18 +71,17 @@ export default function EtudiantPage() {
                   <span className="dot" aria-hidden="true" />
                   <span className="eyebrow">Étudiants &amp; familles — France métropolitaine &amp; DOM-TOM</span>
                 </div>
-                <h1 id="etudiant-h1">
-                  Vos études<br />
-                  au Canada.<br />
-                  <em>Leur sérénité.</em>
+                <h1 id="etudiant-h1" style={{ fontSize: "clamp(78px, 3.8vw, 52px)", lineHeight: 1.1 }}>
+                  De ta lettre d&apos;admission {" "}
+                  <em>aux clés de ton appartement.</em>
                 </h1>
                 <p>
-                  De la Martinique à Paris, nos étudiants arrivent au Canada avec tout en ordre.
-                  Validation du programme, orientation immigration, logement sécurisé avant le départ,
-                  accueil aéroport et 2 jours d&apos;installation sur place — le tout pour <strong>2 500€ HT</strong>.
+                  Tu viens de recevoir ta lettre d&apos;admission ? On s&apos;occupe du reste.
+                  Logement à Montréal, coordination immigration, accueil aéroport et installation complète
+                  — depuis un seul endroit, avant ton départ.
                 </p>
                 <div className="e-hero-ctas">
-                  <Link href="/rendez-vous" className="btn btn-primary btn-arrow">
+                  <Link href="/rendez-vous/etudiant" className="btn btn-primary btn-arrow">
                     Préparer mon dossier
                   </Link>
                   <a href="#logement" className="btn btn-ghost">
@@ -108,7 +107,7 @@ export default function EtudiantPage() {
           <div className="mc-container">
             <div className="e-hero-footer" role="list" aria-label="Chiffres clés">
               {[
-                { n: "1 100€", l: "À partir de" },
+                { n: "1 200€", l: "À partir de" },
                 { n: "6",      l: "Services disponibles" },
                 { n: "M-6",    l: "Délai recommandé" },
                 { n: "100 %",  l: "Paiement sécurisé avant départ" },
@@ -130,11 +129,11 @@ export default function EtudiantPage() {
             <div className="e-uni-track">
               {[
                 "McGill University", "Université de Montréal", "Concordia University",
-                "UQAM", "HEC Montréal", "Université Laval", "Simon Fraser University",
-                "UBC Vancouver", "Université d'Ottawa", "UQAC",
+                "UQAM", "HEC Montréal", "Université Laval", "Polytechnique Montréal",
+                "UQAC", "UQTR", "ÉTS Montréal",
                 "McGill University", "Université de Montréal", "Concordia University",
-                "UQAM", "HEC Montréal", "Université Laval", "Simon Fraser University",
-                "UBC Vancouver", "Université d'Ottawa", "UQAC",
+                "UQAM", "HEC Montréal", "Université Laval", "Polytechnique Montréal",
+                "UQAC", "UQTR", "ÉTS Montréal",
               ].map((name, i) => (
                 <span key={i}>{name}</span>
               ))}
@@ -166,7 +165,7 @@ export default function EtudiantPage() {
                   Nous travaillons avec un réseau de propriétaires et résidences étudiantes vérifiés.
                   Confirmation écrite avant l&apos;embarquement — aucune galère d&apos;hôtel à l&apos;arrivée.
                 </p>
-                <Link href="/rendez-vous" className="btn btn-primary btn-arrow mc-reveal" style={{ marginTop: 32 }}>
+                <Link href="/rendez-vous/etudiant" className="btn btn-primary btn-arrow mc-reveal" style={{ marginTop: 32 }}>
                   Sécuriser le logement
                 </Link>
               </div>
@@ -188,7 +187,7 @@ export default function EtudiantPage() {
                   <li>
                     <div>
                       <h4>Réservation &amp; contrat</h4>
-                      <p>Nous négocions et signons le bail. Confirmation écrite remise avant le départ de France.</p>
+                      <p>Nous négocions et signons le bail. Confirmation écrite remise avant le départ de France métropolitaine ou des DOM-TOM.</p>
                     </div>
                   </li>
                   <li>
@@ -211,7 +210,7 @@ export default function EtudiantPage() {
             <div className="e-acadtimeline-head mc-reveal">
               <div className="eyebrow-row" style={{ color: "rgba(255,255,255,0.5)" }}>
                 <span className="dot" aria-hidden="true" />
-                <span className="eyebrow">Votre calendrier rentrée</span>
+                <span className="eyebrow">Ton calendrier rentrée</span>
               </div>
               <h2 id="acadtl-heading" className="big-heading">
                 M-6 à J+0.<br />
@@ -229,7 +228,7 @@ export default function EtudiantPage() {
                 {
                   label: "M-4",
                   title: "Admission & immigration",
-                  desc: "Lettre d'admission obtenue. CAQ et permis d'études déposés via nos partenaires agréés.",
+                  desc: "Lettre d'admission obtenue. CAQ et permis d'études traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC.",
                   tag: "Frais payés",
                 },
                 {
@@ -276,11 +275,11 @@ export default function EtudiantPage() {
             </div>
             <div className="svc-grid">
               {[
-                { n: "01", title: "Validation du programme",     desc: "Analyse du profil académique, sélection du programme et de l&apos;établissement le mieux adapté à votre projet. Le bon choix dès le départ évite des mois de retard.", tag: "Inclus dans le pack" },
-                { n: "02", title: "Assistance immigration",      desc: "Nous vous orientons et vous accompagnons dans vos démarches : CAQ, permis d&apos;études, traduction de documents. Les dossiers sont déposés via nos avocats et para-juristes partenaires agréés.", tag: "Via partenaires agréés" },
-                { n: "03", title: "Accueil aéroport",            desc: "Un référent vous attend à l&apos;aéroport à votre atterrissage, vous accompagne à votre logement et vous remet les clés. Aucun taxi à chercher, aucune galère le jour J.", tag: "Inclus dans le pack" },
-                { n: "04", title: "Logement sécurisé",           desc: "Recherche via Kijiji, Centris et courtiers locaux selon vos critères et votre budget. Confirmation écrite avant l&apos;embarquement — vous partez en sachant où vous dormez.", tag: "Avant le départ" },
-                { n: "05", title: "Facilitateur d&apos;installation", desc: "2 jours sur place (16h) à vos côtés : ouverture de compte bancaire, RAMQ, NAS, repérage du quartier. Un accompagnement terrain pour que tout soit opérationnel en 48h.", tag: "2 jours / 16h inclus" },
+                { n: "01", title: "Validation du programme",     desc: "Analyse de ton profil académique, sélection du programme et de l&apos;établissement le mieux adapté à ton projet. Le bon choix dès le départ évite des mois de retard.", tag: "Inclus dans le pack" },
+                { n: "02", title: "Assistance immigration",      desc: "On t&apos;oriente et t&apos;accompagne dans tes démarches : CAQ, permis d&apos;études, traduction de documents. Les dossiers sont traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC.", tag: "Soleil Immigration · CICC" },
+                { n: "03", title: "Accueil aéroport",            desc: "Un référent t&apos;attend à l&apos;aéroport à ton atterrissage, t&apos;accompagne à ton logement et te remet les clés. Aucun taxi à chercher, aucune galère le jour J.", tag: "Inclus dans le pack" },
+                { n: "04", title: "Logement sécurisé",           desc: "Recherche via Kijiji, Centris et courtiers locaux selon tes critères et ton budget. Confirmation écrite avant l&apos;embarquement — tu pars en sachant où tu dors.", tag: "Avant le départ" },
+                { n: "05", title: "Facilitateur d&apos;installation", desc: "2 jours sur place (16h) à tes côtés : ouverture de compte bancaire, RAMQ, NAS, repérage du quartier. Un accompagnement terrain pour que tout soit opérationnel en 48h.", tag: "2 jours / 16h inclus" },
                 { n: "06", title: "Relais famille",              desc: "Un numéro direct dédié aux parents. Rapport d&apos;étape à chaque validation, check-in hebdomadaire les 4 premières semaines. Vous êtes informés, quoi qu&apos;il arrive.", tag: "Numéro dédié parents" },
               ].map(({ n, title, desc, tag }) => (
                 <div key={n} className="svc-card mc-reveal">
@@ -292,7 +291,7 @@ export default function EtudiantPage() {
               ))}
             </div>
             <div style={{ marginTop: 48, display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <Link href="/rendez-vous" className="btn btn-primary btn-arrow">
+              <Link href="/rendez-vous/etudiant" className="btn btn-primary btn-arrow">
                 Démarrer mon dossier étudiant
               </Link>
               <p style={{ fontSize: 14, color: "var(--mc-mute)", alignSelf: "center" }}>
@@ -321,17 +320,17 @@ export default function EtudiantPage() {
             <div className="pricing-grid">
               <div className="pricing-pack mc-reveal">
                 <div className="pack-label eyebrow">Services à la carte</div>
-                <div className="pack-price">1 100<span>€</span></div>
-                <p className="pack-note">À partir de — chaque prestation est sélectionnable indépendamment. Facturation en euros (France &amp; DOM-TOM) ou en dollars canadiens.</p>
+                <div className="pack-price">1 200<span>€</span></div>
+                <p className="pack-note">À partir de — chaque prestation est sélectionnable indépendamment. Facturation en euros (France métropolitaine &amp; DOM-TOM) ou en dollars canadiens.</p>
                 <ul className="pack-includes">
                   <li>✓ Recherche de logement</li>
                   <li>✓ Logement temporaire</li>
                   <li>✓ Accueil aéroport</li>
-                  <li>✓ Journée d'installation sur place</li>
-                  <li>✓ Aide à l'ameublement</li>
+                  <li>✓ Journée d&apos;installation sur place</li>
+                  <li>✓ Aide à l&apos;ameublement</li>
                   <li>✓ HELP LINE — assistance 1 an</li>
                 </ul>
-                <Link href="/rendez-vous" className="btn btn-primary btn-arrow" style={{ marginTop: 32 }}>
+                <Link href="/rendez-vous/etudiant" className="btn btn-primary btn-arrow" style={{ marginTop: 32 }}>
                   Construire mon accompagnement
                 </Link>
               </div>
@@ -341,7 +340,7 @@ export default function EtudiantPage() {
                 <table className="extras-table">
                   <tbody>
                     {[
-                      { label: "Recherche de logement",                          eur: "1 100€", cad: "1 600 CAD" },
+                      { label: "Recherche de logement",                          eur: "1 200€", cad: "1 600 CAD" },
                       { label: "Logement temporaire",                            eur: "200€",   cad: "300 CAD" },
                       { label: "Accueil aéroport",                               eur: "300€",   cad: "440 CAD" },
                       { label: "Journée d'installation",                         eur: "500€",   cad: "750 CAD" },
@@ -382,12 +381,12 @@ export default function EtudiantPage() {
             </div>
             <div className="why-grid">
               {[
-                { k: "30+",    title: "Universités Top 500 mondial",    desc: "McGill, UBC, U de Montréal, Concordia — des diplômes reconnus dans 190 pays." },
+                { k: "30+",    title: "Établissements dans le Grand Montréal", desc: "McGill, Université de Montréal, Concordia, UQAM, HEC Montréal, Polytechnique — des diplômes reconnus à l'international." },
                 { k: "−60 %",  title: "vs. le Royaume-Uni ou les USA",  desc: "40 à 60% moins cher pour un niveau de formation équivalent voire supérieur." },
                 { k: "24h",    title: "Par semaine de travail autorisé", desc: "Hors campus pendant les sessions, sans limite pendant les vacances." },
                 { k: "3 ans",  title: "PGWP après l&apos;obtention",    desc: "Permis de travail ouvert vers Express Entry et la résidence permanente." },
                 { k: "2ème",   title: "Ville francophone mondiale",      desc: "Montréal : l&apos;immersion en français qui booste l&apos;employabilité internationale." },
-                { k: "Top 10", title: "QS Best Student Cities",          desc: "Sécurité, qualité de vie, réseau alumni — Montréal et Vancouver au sommet." },
+                { k: "Top 10", title: "QS Best Student Cities",          desc: "Sécurité, qualité de vie, réseau alumni — Montréal parmi les villes étudiantes les plus attractives." },
               ].map(({ k, title, desc }) => (
                 <div key={k} className="why-item mc-reveal">
                   <div className="k">{k}</div>
@@ -409,24 +408,24 @@ export default function EtudiantPage() {
               <span className="eyebrow">Deux perspectives, une seule solution</span>
             </div>
             <h2 id="split-heading" className="big-heading mc-reveal" style={{ marginBottom: 48 }}>
-              Pour vous.<br />
+              Pour toi.<br />
               <span className="muted">Pour eux.</span>
             </h2>
             <div className="split-grid">
               <div className="split-card to-you">
                 <div>
                   <div className="label">Pour l&apos;étudiant</div>
-                  <h3>Concentrez-vous sur votre avenir.</h3>
-                  <p>Tout ce que vous n&apos;avez pas à gérer — pour que vous puissiez vous concentrer sur l&apos;essentiel : réussir vos études.</p>
+                  <h3>Concentre-toi sur ton avenir.</h3>
+                  <p>Tout ce que tu n&apos;as pas à gérer — pour que tu te concentres sur l&apos;essentiel : réussir tes études.</p>
                   <ul>
-                    <li>✓ Dossier complet constitué à votre place</li>
-                    <li>✓ Logement trouvé avant votre arrivée</li>
+                    <li>✓ Dossier complet constitué à ta place</li>
+                    <li>✓ Logement trouvé avant ton arrivée</li>
                     <li>✓ Accueil aéroport &amp; installation J+1</li>
                     <li>✓ Compte bancaire &amp; RAMQ gérés</li>
                     <li>✓ Référent disponible 90 jours</li>
                   </ul>
                 </div>
-                <Link href="/rendez-vous" className="btn btn-light btn-arrow" style={{ marginTop: 32, alignSelf: "flex-start" }}>
+                <Link href="/rendez-vous/etudiant" className="btn btn-light btn-arrow" style={{ marginTop: 32, alignSelf: "flex-start" }}>
                   Démarrer mon dossier
                 </Link>
               </div>
@@ -434,7 +433,7 @@ export default function EtudiantPage() {
                 <div>
                   <div className="label">Pour les parents</div>
                   <h3>Dormez sur vos deux oreilles.</h3>
-                  <p>Vous êtes en France. Votre enfant est au Canada. Vous méritez de savoir exactement ce qui se passe.</p>
+                  <p>Vous êtes en France métropolitaine ou dans les DOM-TOM. Votre enfant est au Canada. Vous méritez de savoir exactement ce qui se passe.</p>
                   <ul>
                     <li>→ Rapport d&apos;étape à chaque validation</li>
                     <li>→ Logement confirmé avant l&apos;embarquement</li>
@@ -443,7 +442,7 @@ export default function EtudiantPage() {
                     <li>→ Tableau de bord partagé en temps réel</li>
                   </ul>
                 </div>
-                <Link href="/rendez-vous" className="btn btn-primary btn-arrow" style={{ marginTop: 32, alignSelf: "flex-start" }}>
+                <Link href="/rendez-vous/etudiant" className="btn btn-primary btn-arrow" style={{ marginTop: 32, alignSelf: "flex-start" }}>
                   Parler à un conseiller
                 </Link>
               </div>
@@ -471,19 +470,19 @@ export default function EtudiantPage() {
               {[
                 {
                   q: "Quel est le calendrier idéal pour un départ à la prochaine rentrée ?",
-                  a: "Nous recommandons de démarrer 6 mois avant la rentrée (M-6). À M-4, la lettre d&apos;admission est obtenue et les frais immigration sont payés. À M-2, le permis d&apos;études est validé et le volet logement est activé. Le jour J, un référent vous attend à l&apos;aéroport.",
+                  a: "On recommande de démarrer 6 mois avant la rentrée (M-6). À M-4, ta lettre d&apos;admission est obtenue et les frais immigration sont payés. À M-2, ton permis d&apos;études est validé et le volet logement est activé. Le jour J, un référent t&apos;attend à l&apos;aéroport.",
                 },
                 {
                   q: "Gérez-vous directement les dossiers CAQ et permis d&apos;études ?",
-                  a: "Nous vous orientons, préparons et vérifions chaque document, mais les dossiers d&apos;immigration sont soumis via nos avocats et para-juristes partenaires agréés. Cette distinction est importante : vous bénéficiez d&apos;un encadrement légal rigoureux tout au long du processus.",
+                  a: "On t&apos;oriente, prépare et vérifie chaque document, mais les dossiers d&apos;immigration sont traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC. Cette distinction est importante : tu bénéficies d&apos;un encadrement rigoureux tout au long du processus.",
                 },
                 {
                   q: "Quelle est la différence entre le CAQ et le permis d&apos;études ?",
-                  a: "Le CAQ est un document provincial (Québec uniquement), délivré par le Ministère de l&apos;Immigration du Québec. Le permis d&apos;études est un document fédéral délivré par IRCC. Pour étudier au Québec, les deux sont obligatoires. Nos partenaires les traitent simultanément.",
+                  a: "Le CAQ est un document provincial (Québec uniquement), délivré par le Ministère de l&apos;Immigration du Québec. Le permis d&apos;études est un document fédéral délivré par IRCC. Pour étudier au Québec, les deux sont obligatoires. Ces démarches sont traitées en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC.",
                 },
                 {
                   q: "Comment le logement est-il sécurisé avant le départ ?",
-                  a: "Nous utilisons les plateformes locales (Kijiji, Centris) et notre réseau de courtiers pour trouver le logement adapté à votre budget et à votre campus. Une confirmation écrite est remise avant l&apos;embarquement — votre enfant sait où il dort dès son arrivée.",
+                  a: "On utilise les plateformes locales (Kijiji, Centris) et notre réseau de courtiers pour trouver le logement adapté à ton budget et à ton campus. Une confirmation écrite t&apos;est remise avant l&apos;embarquement — tu sais où tu dors dès ton arrivée.",
                 },
                 {
                   q: "Mon enfant peut-il travailler pendant ses études ?",
@@ -491,7 +490,7 @@ export default function EtudiantPage() {
                 },
                 {
                   q: "Combien coûte l&apos;accompagnement complet ?",
-                  a: "Nos services sont facturés à la carte, dès 1 100€ pour la recherche de logement. Chaque prestation est sélectionnable indépendamment : logement temporaire (200€), accueil aéroport (300€), journée d&apos;installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens.",
+                  a: "Nos services sont facturés à la carte, dès 1 200€ pour la recherche de logement. Chaque prestation est sélectionnable indépendamment : logement temporaire (200€), accueil aéroport (300€), journée d&apos;installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens.",
                 },
               ].map(({ q, a }) => (
                 <details key={q} className="faq-item">
@@ -501,8 +500,8 @@ export default function EtudiantPage() {
               ))}
 
               <p style={{ marginTop: 32, fontSize: 14, color: "var(--mc-mute)" }}>
-                Votre situation est unique ?{" "}
-                <Link href="/rendez-vous" style={{ color: "var(--mc-ink)", fontWeight: 600, textDecoration: "underline" }}>
+                Ta situation est unique ?{" "}
+                <Link href="/rendez-vous/etudiant" style={{ color: "var(--mc-ink)", fontWeight: 600, textDecoration: "underline" }}>
                   Parlez à un conseiller.
                 </Link>
               </p>
@@ -527,8 +526,8 @@ export default function EtudiantPage() {
                 </h2>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <Link href="/rendez-vous" className="btn btn-light btn-arrow">
-                  Prendre rendez-vous
+                <Link href="/rendez-vous/etudiant" className="btn btn-light btn-arrow">
+                  Réserver mon appel gratuit
                 </Link>
                 <a href="tel:+15143770857" className="btn btn-ghost-dark">
                   +1 (514) 377-0857

@@ -7,9 +7,9 @@ import CookieBanner from "@/components/layout/CookieBanner";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Mobility Canada — Experts en Immigration, Visa et Relocalisation au Canada",
+  title: "Mobility Canada — Coordination de Relocalisation au Québec",
   description:
-    "Accompagnement sur mesure pour votre visa étudiant, permis de travail et résidence permanente au Canada. Présent dans les DOM-TOM.",
+    "Logement, installation et coordination des démarches étudiantes avec Soleil Immigration, consultant agréé CICC. Présent dans les DOM-TOM et en France métropolitaine.",
 };
 
 export default function HomePage() {
@@ -36,8 +36,9 @@ export default function HomePage() {
 
             <div className="hero-sub-row">
               <p className="hero-sub">
-                Visa étudiant, résidence permanente, mobilité RH internationale — Mobility Canada
-                gère chaque démarche de A à Z. Vous vous concentrez sur votre nouveau départ.
+                Études au Québec, logement à Montréal, installation et mobilité RH —
+                Mobility Canada coordonne les étapes clés avec les bons partenaires,
+                dont Soleil Immigration, consultant agréé CICC.
               </p>
               <div className="hero-ctas">
                 <Link href="/rendez-vous" className="btn btn-light btn-arrow">
@@ -52,7 +53,7 @@ export default function HomePage() {
 
           <div className="hero-stats" role="list" aria-label="Chiffres clés">
             {[
-              { n: "1 100€", unit: "",     l: "Service dès" },
+              { n: "1 200€", unit: "",     l: "Service dès" },
               { n: "6",      unit: "",    l: "Services disponibles" },
               { n: "M-6",    unit: "",    l: "Délai recommandé" },
               { n: "100 %",  unit: "",    l: "Paiement avant départ" },
@@ -120,7 +121,7 @@ export default function HomePage() {
                 </p>
                 <ul className="path-list">
                   <li><span>Validation programme</span><span>Choix optimal</span></li>
-                  <li><span>Assistance immigration</span><span>Avocats partenaires</span></li>
+                  <li><span>Assistance immigration</span><span>Coordination Soleil Immigration · CICC</span></li>
                   <li><span>Logement sécurisé</span><span>Avant le départ</span></li>
                   <li><span>Accueil aéroport</span><span>Inclus dans le pack</span></li>
                 </ul>
@@ -132,14 +133,14 @@ export default function HomePage() {
                 <div className="path-num">02 — PARTICULIER</div>
                 <h3 className="path-title">S&apos;installer</h3>
                 <p className="path-desc">
-                  Résidence permanente, logement, école, banque — un seul conseiller
-                  porte toute la charge administrative à votre place.
+                  Relocalisation familiale, logement, école, banque et santé — un
+                  interlocuteur coordonne les étapes avec les bons professionnels.
                 </p>
                 <ul className="path-list">
-                  <li><span>Résidence permanente</span><span>Express Entry</span></li>
+                  <li><span>Projet familial</span><span>Cadrage clair</span></li>
                   <li><span>Logement &amp; école</span><span>Avant l&apos;arrivée</span></li>
-                  <li><span>Banque &amp; RAMQ</span><span>J+1</span></li>
-                  <li><span>Permis conjoint</span><span>Inclus</span></li>
+                  <li><span>Banque &amp; santé</span><span>Installation</span></li>
+                  <li><span>Administratif</span><span>Coordination</span></li>
                 </ul>
                 <span className="path-cta">Voir le parcours famille</span>
               </Link>
@@ -149,14 +150,14 @@ export default function HomePage() {
                 <div className="path-num">03 — ENTREPRISE</div>
                 <h3 className="path-title">Mobilité RH</h3>
                 <p className="path-desc">
-                  EIMT, permis de travail, transferts intra-compagnie. Réduisez votre
-                  time-to-hire et éliminez le risque IRCC.
+                  Relocalisation de talents, préparation documentaire, onboarding
+                  et coordination avec les partenaires habilités.
                 </p>
                 <ul className="path-list">
-                  <li><span>EIMT</span><span>3–4 semaines</span></li>
-                  <li><span>Permis de travail</span><span>Prioritaire</span></li>
-                  <li><span>Transfert ICT</span><span>Sans EIMT</span></li>
-                  <li><span>Onboarding J+1</span><span>Opérationnel</span></li>
+                  <li><span>Cadrage RH</span><span>Besoin talent</span></li>
+                  <li><span>Documents</span><span>Préparation</span></li>
+                  <li><span>Partenaires habilités</span><span>Coordination</span></li>
+                  <li><span>Onboarding</span><span>Reporting B2B</span></li>
                 </ul>
                 <span className="path-cta">Voir les solutions B2B</span>
               </Link>
@@ -168,84 +169,130 @@ export default function HomePage() {
         {/* ══════════════════════════════════════════════
             4. ÉQUIPE — Frédéric & Diana
         ══════════════════════════════════════════════ */}
-        <section id="apropos" className="equipe" aria-labelledby="equipe-heading">
+        <section
+          id="apropos"
+          className="equipe"
+          data-hero-dark
+          aria-labelledby="equipe-heading"
+          style={{
+            background: "var(--mc-ink)",
+            color: "var(--mc-white)",
+            padding: "clamp(80px, 11vw, 150px) 0",
+            position: "relative",
+            overflow: "hidden",
+          }}
+        >
           <div className="mc-container">
-
-            {/* Header */}
-            <div className="equipe-header mc-reveal">
-              <div className="eyebrow-row" style={{ justifyContent: "center" }}>
-                <span className="dot" aria-hidden="true" />
-                <span className="eyebrow">Notre équipe</span>
+            <div
+              className="equipe-layout"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 360px), 1fr))",
+                gap: "clamp(40px, 7vw, 88px)",
+                alignItems: "center",
+              }}
+            >
+              <div className="equipe-copy mc-reveal">
+                <div className="eyebrow-row">
+                  <span className="dot" aria-hidden="true" />
+                  <span className="eyebrow">Notre équipe</span>
+                </div>
+                <h2 id="equipe-heading" className="big-heading">
+                  Deux relais.<br />
+                  <span className="muted">Un projet tenu.</span>
+                </h2>
+                <p className="equipe-intro">
+                  Mobility Canada relie ce qui manque souvent dans un départ à l&apos;étranger :
+                  un pilotage clair depuis la France métropolitaine et les DOM-TOM, avec une présence réelle à Montréal.
+                  Vous avez un interlocuteur pour cadrer, et quelqu&apos;un sur place quand ça compte.
+                </p>
+                <div className="equipe-actions">
+                  <Link href="/rendez-vous" className="btn btn-light btn-arrow">
+                    Parler à l&apos;équipe
+                  </Link>
+                  <span className="equipe-proof">
+                    <span aria-hidden="true" />
+                    Montréal · DOM-TOM
+                  </span>
+                </div>
               </div>
-              <h2 id="equipe-heading" className="equipe-heading">
-                Deux experts.<br />
-                <span className="muted">Un seul objectif.</span>
-              </h2>
-              <blockquote className="equipe-philosophy">
-                &ldquo;Voir son enfant partir à 6 000 km de la maison, c&apos;est une étape immense.
-                Nous ne sommes pas là pour vous vendre du rêve, mais pour être votre relais sur le terrain.
-                Notre seul but : que vos enfants atterrissent en douceur, et que vous puissiez souffler.&rdquo;
-                <cite>— Diana &amp; Frédéric</cite>
-              </blockquote>
-            </div>
 
-            {/* Cards */}
-            <div className="equipe-cards">
+              <div
+                className="equipe-panel mc-reveal"
+                style={{
+                  display: "grid",
+                  gap: 1,
+                  background: "rgba(255,255,255,0.12)",
+                  border: "1px solid rgba(255,255,255,0.12)",
+                  borderRadius: "var(--r-xl)",
+                  overflow: "hidden",
+                }}
+              >
+                <article
+                  className="equipe-member"
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "128px 1fr",
+                    gap: 24,
+                    alignItems: "center",
+                    background: "rgba(255,255,255,0.055)",
+                    padding: 24,
+                  }}
+                >
+                  <div className="equipe-member-photo" style={{ width: 128, height: 128, overflow: "hidden", borderRadius: 20 }}>
+                    <Image
+                      src="/frederic.jpg"
+                      alt="Portrait de Frédéric Clément"
+                      width={128}
+                      height={128}
+                      style={{ width: 128, height: 128, objectFit: "cover", objectPosition: "center 30%" }}
+                    />
+                  </div>
+                  <div className="equipe-member-body">
+                    <p className="equipe-member-kicker">Cadrage &amp; dossier</p>
+                    <h3>Frédéric Clément</h3>
+                    <p>
+                      Structure le projet, sécurise les étapes et garde le cap sur les délais,
+                      le logement et les points sensibles avant le départ.
+                    </p>
+                  </div>
+                </article>
 
-              {/* Frédéric */}
-              <article className="equipe-card mc-reveal">
-                <div className="equipe-card-photo">
-                  <Image
-                    src="/frederic.jpg"
-                    alt="Portrait de Frédéric Clément"
-                    fill
-                    style={{ objectFit: "cover", objectPosition: "center 30%" }}
-                    sizes="(max-width: 680px) 100vw, 430px"
-                  />
-                </div>
-                <div className="equipe-card-body">
-                  <p className="equipe-card-tagline">
-                    &ldquo;Mon métier, c&apos;est d&apos;éviter que le projet de votre enfant ne déraille.&rdquo;
-                  </p>
-                  <h3 className="equipe-card-name">Frédéric Clément</h3>
-                  <p className="equipe-card-role">Mobilité &amp; Logement · Paris</p>
-                  <hr className="equipe-card-divider" aria-hidden="true" />
-                  <p className="equipe-card-bio">
-                    Ça fait près de 20 ans que je gère des dossiers de mobilité, avec une grande attache
-                    pour les familles d&apos;Outre-mer. Mon rôle : prendre tout le stress à ma charge — logement
-                    sécurisé, dossier qui tient la route, zéro mauvaise surprise. Je ne fais pas de longs
-                    discours, je m&apos;assure que les choses sont faites carrément.
-                  </p>
-                </div>
-              </article>
+                <article
+                  className="equipe-member"
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "128px 1fr",
+                    gap: 24,
+                    alignItems: "center",
+                    background: "rgba(255,255,255,0.055)",
+                    padding: 24,
+                  }}
+                >
+                  <div className="equipe-member-photo" style={{ width: 128, height: 128, overflow: "hidden", borderRadius: 20 }}>
+                    <Image
+                      src="/diana.jpg"
+                      alt="Portrait de Diana Torbay-Clément"
+                      width={128}
+                      height={128}
+                      style={{ width: 128, height: 128, objectFit: "cover", objectPosition: "center 42%" }}
+                    />
+                  </div>
+                  <div className="equipe-member-body">
+                    <p className="equipe-member-kicker">Terrain &amp; accueil</p>
+                    <h3>Diana Torbay-Clément</h3>
+                    <p>
+                      Prend le relais à Montréal : arrivée, clés, banque, repères locaux
+                      et premiers jours sur place.
+                    </p>
+                  </div>
+                </article>
 
-              {/* Diana */}
-              <article className="equipe-card mc-reveal">
-                <div className="equipe-card-photo">
-                  <Image
-                    src="/diana.jpg"
-                    alt="Portrait de Diana Torbay-Clément"
-                    fill
-                    style={{ objectFit: "cover", objectPosition: "center 42%" }}
-                    sizes="(max-width: 680px) 100vw, 430px"
-                  />
-                </div>
-                <div className="equipe-card-body">
-                  <p className="equipe-card-tagline">
-                    &ldquo;Je suis le premier visage familier qu&apos;ils croisent en arrivant à Montréal.&rdquo;
-                  </p>
-                  <h3 className="equipe-card-name">Diana Torbay-Clément</h3>
-                  <p className="equipe-card-role">Terrain &amp; Accueil · Montréal</p>
-                  <hr className="equipe-card-divider" aria-hidden="true" />
-                  <p className="equipe-card-bio">
-                    Mon quotidien, c&apos;est le terrain. J&apos;attends vos enfants à l&apos;aéroport, je les accompagne
-                    pour le compte en banque, les clés, le métro. Je veille sur eux comme on le ferait pour
-                    sa propre famille. Une mission réussie, c&apos;est quand ils appellent le soir en disant :
-                    &ldquo;Ça y est, je suis chez moi.&rdquo;
-                  </p>
-                </div>
-              </article>
-
+                <blockquote className="equipe-quote">
+                  &ldquo;Notre rôle, c&apos;est de transformer un départ stressant en arrivée maîtrisée.&rdquo;
+                  <cite>Diana &amp; Frédéric</cite>
+                </blockquote>
+              </div>
             </div>
           </div>
         </section>
@@ -325,7 +372,7 @@ export default function HomePage() {
             <div className="process-steps">
               {[
                 { n: "M-6", title: "Validation du programme", desc: "Analyse de profil, choix du programme et de l'établissement, plan d'action personnalisé. Consultation gratuite pour poser les bases.", dur: "Consultation gratuite" },
-                { n: "M-4", title: "Dossier d'admission",     desc: "Constitution du dossier, obtention de la lettre d'admission. Orientation vers nos avocats et para-juristes partenaires pour les démarches immigration.", dur: "CAQ + permis d'études" },
+                { n: "M-4", title: "Dossier d'admission",     desc: "Constitution du dossier, obtention de la lettre d'admission. Coordination avec Soleil Immigration, consultant agréé CICC, pour les démarches étudiantes.", dur: "CAQ + permis d'études" },
                 { n: "M-2", title: "Permis obtenu",           desc: "Permis d'études validé, logement sécurisé, billet confirmé. Le paiement du volet relocalisation est activé à cette étape.", dur: "Logement confirmé" },
                 { n: "Jour J", title: "Accueil &amp; installation", desc: "Accueil à l'aéroport, remise des clés, 2 jours d'accompagnement sur place (16h). Compte bancaire, RAMQ, NAS — tout bouclé.", dur: "Opérationnel dès J+1" },
               ].map(({ n, title, desc, dur }) => (
@@ -360,7 +407,7 @@ export default function HomePage() {
               {[
                 {
                   quote: "Indispensable ! Avec Mobility, nous avons eu un accompagnement sur mesure, une écoute totale. Diana fut une aide précieuse pour la recherche du logement à Montréal et bien plus encore. Une prestation de qualité conforme à ses promesses. Je recommande Mobility Canada à toutes les personnes qui s'installent au Canada.",
-                  name: "Delphine D.", role: "Installation famille · France → Montréal", av: "DD",
+                  name: "Delphine D.", role: "Installation famille · France métropolitaine → Montréal", av: "DD",
                 },
                 {
                   quote: "Merci à l'équipe de Mobility Canada de nous avoir accompagnés dans toutes les étapes de l'installation de notre fils au Canada pour ses études. Cela nous a permis d'éviter des dépenses superflues, de trouver un logement adapté et de sécuriser la signature du bail locatif. Un grand merci à l'ensemble de l'équipe.",

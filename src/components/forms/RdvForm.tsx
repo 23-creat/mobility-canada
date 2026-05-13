@@ -17,16 +17,16 @@ interface FormData {
 }
 
 const PROFILES = [
-  { emoji: "🎓", title: "Étudiant",         desc: "Visa étudiant, CAQ, logement sécurisé" },
-  { emoji: "🏠", title: "Particulier",       desc: "Résidence permanente, installation famille" },
-  { emoji: "🏢", title: "Entreprise",        desc: "EIMT, permis de travail, mobilité RH" },
+  { emoji: "🎓", title: "Étudiant",         desc: "Études au Québec, CAQ, logement sécurisé" },
+  { emoji: "🏠", title: "Particulier",       desc: "Relocalisation, logement, installation famille" },
+  { emoji: "🏢", title: "Entreprise",        desc: "Mobilité RH, coordination, onboarding" },
 ];
 
 const DESTINATIONS = [
   { emoji: "🍁", title: "Montréal / Québec", desc: "Francophone, vivant, abordable" },
-  { emoji: "🌊", title: "Toronto / Ontario", desc: "Hub financier et tech" },
-  { emoji: "🏔️", title: "Vancouver / BC",    desc: "Qualité de vie, façade Pacifique" },
-  { emoji: "📍", title: "Autre province",    desc: "Saskatchewan, Alberta, Manitoba…" },
+  { emoji: "🎓", title: "Grand Montréal", desc: "Campus, transport, quartiers étudiants" },
+  { emoji: "🏙️", title: "Ville de Québec", desc: "Capitale, universités, cadre francophone" },
+  { emoji: "📍", title: "Autre ville québécoise", desc: "À cadrer ensemble selon le projet" },
 ];
 
 const SLOTS = [
@@ -250,7 +250,7 @@ export default function RdvForm() {
       {step === 3 && (
         <div className="rdv-step">
           <h2>Choisissez un créneau</h2>
-          <p className="lead">Consultation de 30 minutes, par téléphone ou visio. Heure de Montréal (UTC−5).</p>
+          <p className="lead">Appel de faisabilité de 15 minutes, par téléphone ou visio. Heure de Montréal (UTC−5).</p>
           <div className="slot-grid" role="radiogroup" aria-label="Choisissez un créneau disponible">
             {SLOTS.map(({ d, t }) => {
               const key = `${d} ${t}`;

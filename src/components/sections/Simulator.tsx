@@ -20,7 +20,7 @@ const QUESTIONS: Question[] = [
   {
     q: "Quelle est votre situation actuelle ?",
     opts: [
-      { label: "Je prépare mon dossier depuis la France", key: "A" },
+      { label: "Je prépare mon dossier depuis la France métropolitaine", key: "A" },
       { label: "Je suis déjà au Canada",                  key: "B" },
       { label: "Je n'ai pas encore commencé",             key: "C" },
     ],

@@ -40,22 +40,22 @@ export const metadata: Metadata = {
   title: {
     template: "%s | Mobility Canada",
     default:
-      "Mobility Canada — Experts en Immigration, Visa et Relocalisation au Canada",
+      "Mobility Canada — Coordination de Relocalisation pour Étudier au Québec",
   },
   description:
-    "Accompagnement sur mesure pour votre visa étudiant, permis de travail et résidence permanente au Canada. Présent dans les DOM-TOM.",
+    "Logement à Montréal, installation sur place et coordination des démarches étudiantes avec Soleil Immigration, consultant agréé CICC. Présent dans les DOM-TOM.",
   keywords: [
-    "immigration Canada",
     "Mobility Canada",
-    "visa Canada",
-    "visa étudiant Canada",
-    "permis de travail Canada",
-    "résidence permanente Canada",
-    "expatriation Canada",
+    "études au Québec",
+    "étudier à Montréal",
+    "logement étudiant Montréal",
+    "relocalisation étudiant Canada",
+    "installation étudiant Montréal",
+    "coordination CAQ permis d'études",
     "relocalisation Canada",
     "CAQ",
-    "consultant immigration Canada",
-    "s'installer au Canada depuis la France",
+    "Soleil Immigration CICC",
+    "s'installer à Montréal depuis les DOM-TOM ou la France métropolitaine",
   ],
 
   openGraph: {
@@ -63,24 +63,24 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://www.mobilitycanada.fr",
     siteName: "Mobility Canada",
-    title: "Mobility Canada — Experts en Immigration et Relocalisation au Canada",
+    title: "Mobility Canada — Logement, Installation et Coordination Études au Québec",
     description:
-      "Spécialisé en immigration au Canada. Visa étudiant, permis de travail, résidence permanente. Présent dans les DOM-TOM. Consultation gratuite.",
+      "De la lettre d'admission aux clés de l'appartement : logement à Montréal, installation et coordination avec Soleil Immigration, consultant agréé CICC.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mobility Canada — Immigration et Relocalisation au Canada",
+        alt: "Mobility Canada — Relocalisation étudiante au Québec",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Mobility Canada — Immigration au Canada | Experts en Relocalisation",
+    title: "Mobility Canada — Relocalisation Étudiante au Québec",
     description:
-      "Visa étudiant, permis de travail, résidence permanente. Accompagnement personnalisé par des experts en immigration canadienne.",
+      "Logement à Montréal, installation sur place et coordination des démarches étudiantes avec Soleil Immigration, consultant agréé CICC.",
     images: ["/og-image.jpg"],
   },
 
@@ -111,17 +111,17 @@ const orgSchema = {
   "@type": "ProfessionalService",
   name: "Mobility Canada",
   description:
-    "Expert en immigration et relocalisation au Canada.",
+    "Coordination de relocalisation au Canada pour étudiants et familles francophones.",
   url: "https://www.mobilitycanada.fr",
   logo: "https://www.mobilitycanada.fr/logo.png",
   priceRange: "€€",
-  areaServed: ["France", "Canada"],
+  areaServed: ["France métropolitaine", "DOM-TOM", "Canada"],
   availableLanguage: ["French", "English"],
   knowsAbout: [
-    "Immigration Canada",
+    "Relocalisation Canada",
     "Visa étudiant Canada",
-    "Permis de travail Canada",
-    "Résidence permanente",
+    "Logement étudiant Montréal",
+    "Installation à Montréal",
     "CAQ",
   ],
   contactPoint: {
@@ -137,16 +137,16 @@ const orgSchema = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "Immigration Consulting",
+  serviceType: "Relocation Coordination",
   provider: { "@type": "Organization", name: "Mobility Canada" },
   areaServed: { "@type": "Country", name: "Canada" },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Services d'immigration",
+    name: "Services de relocalisation",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Visa étudiant (CAQ)" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Permis de travail" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Résidence permanente" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Coordination CAQ et permis d'études avec consultant agréé CICC" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Recherche de logement étudiant à Montréal" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Accueil aéroport et installation à Montréal" } },
     ],
   },
 };

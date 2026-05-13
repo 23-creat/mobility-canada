@@ -42,17 +42,17 @@ const INITIAL_DATA: FormData = {
 /* ─── Options ─── */
 
 const PROFILES = [
-  { value: "etudiant",    label: "Étudiant",    icon: GraduationCap, desc: "Visa étudiant, CAQ, admission" },
-  { value: "particulier", label: "Particulier",  icon: Users,         desc: "Résidence permanente, famille" },
-  { value: "entreprise",  label: "Entreprise",   icon: Building2,     desc: "Permis de travail, mobilité RH" },
+  { value: "etudiant",    label: "Étudiant",    icon: GraduationCap, desc: "Études au Québec, CAQ, logement" },
+  { value: "particulier", label: "Particulier",  icon: Users,         desc: "Relocalisation, famille" },
+  { value: "entreprise",  label: "Entreprise",   icon: Building2,     desc: "Mobilité RH, onboarding" },
 ] as const;
 
 const DESTINATIONS = [
-  "Québec (Montréal, Québec City…)",
-  "Ontario (Toronto, Ottawa…)",
-  "Colombie-Britannique (Vancouver…)",
-  "Alberta (Calgary, Edmonton…)",
-  "Autre province ou territoire",
+  "Montréal / Grand Montréal",
+  "Ville de Québec",
+  "Sherbrooke",
+  "Trois-Rivières",
+  "Autre ville québécoise",
 ] as const;
 
 const TIMELINES = [
@@ -172,7 +172,7 @@ function Step1({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
       {/* Pays */}
       <div>
         <FieldLabel htmlFor="step1-country">Pays de résidence actuel</FieldLabel>
-        <TextInput id="step1-country" value={data.country} onChange={(v) => set({ country: v })} placeholder="France" autoComplete="country-name" />
+        <TextInput id="step1-country" value={data.country} onChange={(v) => set({ country: v })} placeholder="France métropolitaine" autoComplete="country-name" />
       </div>
     </div>
   );
@@ -184,7 +184,7 @@ function Step2({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
       <h2 className="mb-1 font-display text-[1.5rem] font-bold text-[#003366]">
         Votre projet
       </h2>
-      <p className="mb-8 text-sm text-neutral-500">Étape 2 sur 3 — Décrivez votre projet au Canada.</p>
+      <p className="mb-8 text-sm text-neutral-500">Étape 2 sur 3 — Décrivez votre projet au Québec.</p>
 
       {/* Destination */}
       <fieldset className="mb-7">
@@ -246,7 +246,7 @@ function Step2({ data, set }: { data: FormData; set: (d: Partial<FormData>) => v
           id="step2-desc"
           value={data.projectDesc}
           onChange={(e) => set({ projectDesc: e.target.value })}
-          placeholder="Ex : Je veux étudier l'informatique à Montréal dès septembre 2025…"
+          placeholder="Ex : Je veux étudier l'informatique à Montréal dès septembre 2026…"
           rows={4}
           className="w-full resize-none rounded-xl border border-neutral-200 px-4 py-3.5 text-[0.9375rem] text-neutral-800 outline-none transition-all placeholder:text-neutral-300 focus:border-[#003366]/50 focus:ring-2 focus:ring-[#003366]/10"
         />

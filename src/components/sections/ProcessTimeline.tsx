@@ -28,23 +28,23 @@ const STEPS: Step[] = [
     icon: Search,
     title: "Diagnostic",
     description:
-      "Lors d'une consultation gratuite de 30 minutes, nous analysons votre profil, vos objectifs et votre admissibilité au regard des programmes d'immigration en vigueur.",
-    detail: "Consultation gratuite · 30 min",
+      "Lors d'un appel de faisabilité gratuit de 15 minutes, nous cadrons votre projet, vos délais et vos besoins de relocalisation au Québec.",
+    detail: "Appel gratuit · 15 min",
   },
   {
     number: "02",
     icon: Map,
     title: "Stratégie",
     description:
-      "Nous construisons votre feuille de route personnalisée : choix du visa optimal, constitution complète du dossier, et calendrier de soumission maximisant vos chances.",
+      "Nous construisons votre feuille de route personnalisée : logement, installation, documents à préparer et coordination avec les bons interlocuteurs.",
     detail: "Plan d'action sur mesure",
   },
   {
     number: "03",
     icon: FileCheck,
-    title: "Dépôt",
+    title: "Coordination",
     description:
-      "Nos experts préparent et soumettent votre dossier officiel aux autorités canadiennes. Chaque pièce est vérifiée pour zéro motif de refus.",
+      "Nous centralisons le suivi documentaire et coordonnons, lorsque nécessaire, avec des professionnels habilités pour les démarches réglementées.",
     detail: "Suivi en temps réel",
   },
   {
