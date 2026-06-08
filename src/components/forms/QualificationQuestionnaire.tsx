@@ -8,11 +8,12 @@ type AnswerValue =
   | "lettre_oui"
   | "lettre_en_cours"
   | "lettre_non"
-  | "rentree_automne_2026"
-  | "rentree_hiver_2027"
+  | `rentree_automne_${number}`
+  | `rentree_hiver_${number}`
   | "rentree_inconnue"
   | "origine_martinique"
   | "origine_guadeloupe"
+  | "origine_guyane"
   | "origine_reunion"
   | "origine_france_metro"
   | "origine_autre"
@@ -35,6 +36,9 @@ const CALENDLY_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ??
   "https://calendly.com/mobility-canada-admin/30min";
 
+const currentYear = new Date().getFullYear();
+const nextYear = currentYear + 1;
+
 const QUESTIONS: Array<{
   key: QuestionKey;
   question: string;
@@ -53,8 +57,8 @@ const QUESTIONS: Array<{
     key: "rentree",
     question: "Quelle rentrée tu vises ?",
     options: [
-      { label: "Automne 2026 (septembre)", value: "rentree_automne_2026" },
-      { label: "Hiver 2027 (janvier)", value: "rentree_hiver_2027" },
+      { label: `Automne ${currentYear} (septembre)`, value: `rentree_automne_${currentYear}` },
+      { label: `Hiver ${nextYear} (janvier)`, value: `rentree_hiver_${nextYear}` },
       { label: "Je ne sais pas encore", value: "rentree_inconnue" },
     ],
   },
@@ -64,6 +68,7 @@ const QUESTIONS: Array<{
     options: [
       { label: "Martinique", value: "origine_martinique" },
       { label: "Guadeloupe", value: "origine_guadeloupe" },
+      { label: "Guyane", value: "origine_guyane" },
       { label: "La Réunion", value: "origine_reunion" },
       { label: "France métropolitaine", value: "origine_france_metro" },
       { label: "Autre", value: "origine_autre" },
@@ -121,7 +126,7 @@ export default function QualificationQuestionnaire({
   }, [screen, step]);
 
   const current = QUESTIONS[step];
-  const calendlySrc = `${calendlyUrl}?hide_gdpr_banner=1&name=${encodeURIComponent(
+  const calendlySrc = `${calendlyUrl}?hide_gdpr_banner=1&locale=fr&name=${encodeURIComponent(
     contact.prenom
   )}&email=${encodeURIComponent(contact.email)}`;
 

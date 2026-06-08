@@ -25,8 +25,8 @@ const REASSURANCE = [
   },
   {
     num: "03",
-    title: "DOM-TOM & France métropolitaine",
-    desc: "On accompagne les étudiants de tous les DOM-TOM (Antilles, La Réunion, Guyane, Mayotte, Polynésie…) et de France métropolitaine.",
+    title: "Départements Ultramarins & France métropolitaine",
+    desc: "On accompagne les étudiants des Départements Ultramarins (Antilles, La Réunion, Guyane, Mayotte, Polynésie…) et de France métropolitaine.",
   },
 ];
 

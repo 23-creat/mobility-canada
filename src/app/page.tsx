@@ -9,7 +9,7 @@ import ScrollReveal from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = {
   title: "Mobility Canada — Coordination de Relocalisation au Québec",
   description:
-    "Logement, installation et coordination des démarches étudiantes avec Soleil Immigration, consultant agréé CICC. Présent dans les DOM-TOM et en France métropolitaine.",
+    "Logement, installation et coordination des démarches étudiantes avec des consultants agréés CICC. Présent dans les Départements Ultramarins et en France métropolitaine.",
 };
 
 export default function HomePage() {
@@ -38,7 +38,7 @@ export default function HomePage() {
               <p className="hero-sub">
                 Études au Québec, logement à Montréal, installation et mobilité RH —
                 Mobility Canada coordonne les étapes clés avec les bons partenaires,
-                dont Soleil Immigration, consultant agréé CICC.
+                dont des consultants agréés CICC.
               </p>
               <div className="hero-ctas">
                 <Link href="/rendez-vous" className="btn btn-light btn-arrow">
@@ -121,7 +121,7 @@ export default function HomePage() {
                 </p>
                 <ul className="path-list">
                   <li><span>Validation programme</span><span>Choix optimal</span></li>
-                  <li><span>Assistance immigration</span><span>Coordination Soleil Immigration · CICC</span></li>
+                  <li><span>Assistance immigration</span><span>Coordination consultant CICC</span></li>
                   <li><span>Logement sécurisé</span><span>Avant le départ</span></li>
                   <li><span>Accueil aéroport</span><span>Inclus dans le pack</span></li>
                 </ul>
@@ -203,7 +203,7 @@ export default function HomePage() {
                 </h2>
                 <p className="equipe-intro">
                   Mobility Canada relie ce qui manque souvent dans un départ à l&apos;étranger :
-                  un pilotage clair depuis la France métropolitaine et les DOM-TOM, avec une présence réelle à Montréal.
+                  un pilotage clair depuis la France métropolitaine et les Départements Ultramarins, avec une présence réelle à Montréal.
                   Vous avez un interlocuteur pour cadrer, et quelqu&apos;un sur place quand ça compte.
                 </p>
                 <div className="equipe-actions">
@@ -212,7 +212,7 @@ export default function HomePage() {
                   </Link>
                   <span className="equipe-proof">
                     <span aria-hidden="true" />
-                    Montréal · DOM-TOM
+                    Montréal · DROM
                   </span>
                 </div>
               </div>
@@ -319,6 +319,7 @@ export default function HomePage() {
                   src="/mtl-skyline.jpg"
                   alt=""
                   fill
+                  sizes="(max-width: 920px) 100vw, 50vw"
                   className="mtl-photo"
                   style={{ objectFit: "cover", objectPosition: "center" }}
                   priority
@@ -341,7 +342,7 @@ export default function HomePage() {
                   { k: "30+",     l: "Universités dans le Grand Montréal" },
                   { k: "2ème",    l: "Ville francophone mondiale par la population" },
                   { k: "Top 10",  l: "QS Best Student Cities 2024" },
-                  { k: "−40 %",   l: "vs. coût de la vie parisien" },
+                  { k: "−40 %",   l: "vs. Londres ou Toronto" },
                 ].map(({ k, l }) => (
                   <div key={l} className="mtl-fact mc-reveal">
                     <div className="k">{k}</div>
@@ -372,7 +373,7 @@ export default function HomePage() {
             <div className="process-steps">
               {[
                 { n: "M-6", title: "Validation du programme", desc: "Analyse de profil, choix du programme et de l'établissement, plan d'action personnalisé. Consultation gratuite pour poser les bases.", dur: "Consultation gratuite" },
-                { n: "M-4", title: "Dossier d'admission",     desc: "Constitution du dossier, obtention de la lettre d'admission. Coordination avec Soleil Immigration, consultant agréé CICC, pour les démarches étudiantes.", dur: "CAQ + permis d'études" },
+                { n: "M-4", title: "Dossier d'admission",     desc: "Constitution du dossier, obtention de la lettre d'admission. Coordination avec des consultants agréés CICC pour les démarches étudiantes.", dur: "CAQ + permis d'études" },
                 { n: "M-2", title: "Permis obtenu",           desc: "Permis d'études validé, logement sécurisé, billet confirmé. Le paiement du volet relocalisation est activé à cette étape.", dur: "Logement confirmé" },
                 { n: "Jour J", title: "Accueil &amp; installation", desc: "Accueil à l'aéroport, remise des clés, 2 jours d'accompagnement sur place (16h). Compte bancaire, RAMQ, NAS — tout bouclé.", dur: "Opérationnel dès J+1" },
               ].map(({ n, title, desc, dur }) => (
@@ -407,7 +408,7 @@ export default function HomePage() {
               {[
                 {
                   quote: "Indispensable ! Avec Mobility, nous avons eu un accompagnement sur mesure, une écoute totale. Diana fut une aide précieuse pour la recherche du logement à Montréal et bien plus encore. Une prestation de qualité conforme à ses promesses. Je recommande Mobility Canada à toutes les personnes qui s'installent au Canada.",
-                  name: "Delphine D.", role: "Installation famille · France métropolitaine → Montréal", av: "DD",
+                  name: "Delphine D.", role: "Installation famille · Guadeloupe → Montréal", av: "DD",
                 },
                 {
                   quote: "Merci à l'équipe de Mobility Canada de nous avoir accompagnés dans toutes les étapes de l'installation de notre fils au Canada pour ses études. Cela nous a permis d'éviter des dépenses superflues, de trouver un logement adapté et de sécuriser la signature du bail locatif. Un grand merci à l'ensemble de l'équipe.",

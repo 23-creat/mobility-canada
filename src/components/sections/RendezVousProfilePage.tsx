@@ -66,7 +66,7 @@ export default function RendezVousProfilePage({
           <div>
             {bookingContent ?? (
               <iframe
-                src={calendlyUrl}
+                src={`${calendlyUrl}${calendlyUrl?.includes("?") ? "&" : "?"}hide_gdpr_banner=1&locale=fr`}
                 width="100%"
                 height="700"
                 style={{ border: "none", borderRadius: 16, background: "var(--mc-white)" }}

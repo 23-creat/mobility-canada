@@ -20,8 +20,8 @@ const PATHS = [
     href: "/rendez-vous/etudiant",
     eyebrow: "Étudiant",
     title: "Études au Québec",
-    desc: "Lettre d'admission, logement à Montréal, installation et coordination CAQ/permis d'études avec Soleil Immigration.",
-    meta: "15 min · DOM-TOM & France métropolitaine",
+    desc: "Lettre d'admission, logement à Montréal, installation et coordination CAQ/permis d'études avec des consultants agréés CICC.",
+    meta: "15 min · DROM & France métropolitaine",
   },
   {
     href: "/rendez-vous/particulier",

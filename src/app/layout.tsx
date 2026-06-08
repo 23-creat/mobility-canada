@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Mobility Canada — Coordination de Relocalisation pour Étudier au Québec",
   },
   description:
-    "Logement à Montréal, installation sur place et coordination des démarches étudiantes avec Soleil Immigration, consultant agréé CICC. Présent dans les DOM-TOM.",
+    "Logement à Montréal, installation sur place et coordination des démarches étudiantes avec des consultants agréés CICC. Présent dans les Départements Ultramarins.",
   keywords: [
     "Mobility Canada",
     "études au Québec",
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
     "coordination CAQ permis d'études",
     "relocalisation Canada",
     "CAQ",
-    "Soleil Immigration CICC",
-    "s'installer à Montréal depuis les DOM-TOM ou la France métropolitaine",
+    "consultant agréé CICC",
+    "s'installer à Montréal depuis les Départements Ultramarins ou la France métropolitaine",
   ],
 
   openGraph: {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     siteName: "Mobility Canada",
     title: "Mobility Canada — Logement, Installation et Coordination Études au Québec",
     description:
-      "De la lettre d'admission aux clés de l'appartement : logement à Montréal, installation et coordination avec Soleil Immigration, consultant agréé CICC.",
+      "De la lettre d'admission aux clés de l'appartement : logement à Montréal, installation et coordination avec des consultants agréés CICC.",
     images: [
       {
         url: "/og-image.jpg",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Mobility Canada — Relocalisation Étudiante au Québec",
     description:
-      "Logement à Montréal, installation sur place et coordination des démarches étudiantes avec Soleil Immigration, consultant agréé CICC.",
+      "Logement à Montréal, installation sur place et coordination des démarches étudiantes avec des consultants agréés CICC.",
     images: ["/og-image.jpg"],
   },
 
@@ -115,7 +115,7 @@ const orgSchema = {
   url: "https://www.mobilitycanada.fr",
   logo: "https://www.mobilitycanada.fr/logo.png",
   priceRange: "€€",
-  areaServed: ["France métropolitaine", "DOM-TOM", "Canada"],
+  areaServed: ["France métropolitaine", "Départements Ultramarins", "Canada"],
   availableLanguage: ["French", "English"],
   knowsAbout: [
     "Relocalisation Canada",

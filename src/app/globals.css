@@ -105,8 +105,55 @@ button { font-family: inherit; cursor: pointer; border: 0; background: transpare
 .mc-nav-rdv .arrow { width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.14); display: grid; place-items: center; font-size: 13px; transition: transform .3s ease; }
 .mc-nav.on-dark .mc-nav-rdv .arrow { background: rgba(5,10,24,0.1); }
 .mc-nav-rdv:hover .arrow { transform: translateX(2px); }
-@media (max-width: 980px) { .mc-nav-links { display: none; } .mc-nav-phone .phone-label { display: none; } }
-@media (max-width: 520px) { .mc-logo-sub { display: none; } .mc-nav-phone { display: none; } }
+/* ── Hamburger ── */
+.mc-hamburger { display: none; align-items: center; justify-content: center; background: none; border: none; cursor: pointer; padding: 8px; margin-left: 4px; border-radius: 50%; flex-shrink: 0; transition: background .2s ease; }
+.mc-hamburger:hover { background: rgba(5,10,24,0.06); }
+.mc-hamburger-icon { display: flex; flex-direction: column; justify-content: space-between; width: 22px; height: 15px; }
+.mc-hamburger-icon span { display: block; height: 2px; background: var(--mc-ink); border-radius: 2px; transition: transform .28s ease, opacity .28s ease; transform-origin: center; }
+.mc-hamburger-icon.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.mc-hamburger-icon.open span:nth-child(2) { opacity: 0; }
+.mc-hamburger-icon.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ── Menu mobile ── */
+.mc-mobile-menu { margin-top: 8px; padding: 8px; background: rgba(255,255,255,0.96); backdrop-filter: saturate(180%) blur(22px); -webkit-backdrop-filter: saturate(180%) blur(22px); border: 1px solid rgba(5,10,24,0.08); border-radius: 24px; box-shadow: 0 10px 30px -10px rgba(5,10,24,0.14), 0 2px 8px rgba(5,10,24,0.06); }
+.mc-mobile-links { display: flex; flex-direction: column; gap: 2px; }
+.mc-mobile-link { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 16px; font-size: 17px; font-weight: 600; color: var(--mc-ink); letter-spacing: -0.01em; transition: background .18s ease; }
+.mc-mobile-link:hover { background: rgba(5,10,24,0.04); }
+.mc-mobile-link.active { background: rgba(0,51,102,0.07); color: var(--mc-ink); }
+.mc-mobile-link .idx { font-family: var(--mc-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: var(--mc-accent); width: 22px; flex-shrink: 0; }
+.mc-mobile-footer { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; padding: 12px 8px 8px; border-top: 1px solid rgba(5,10,24,0.07); }
+.mc-mobile-phone { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; font-family: var(--mc-mono); font-size: 14px; letter-spacing: 0.04em; color: var(--mc-ink); opacity: 0.7; border-radius: 14px; transition: background .18s, opacity .18s; }
+.mc-mobile-phone:hover { opacity: 1; background: rgba(5,10,24,0.04); }
+.mc-mobile-rdv { justify-content: center; }
+
+/* ── Responsive navbar ── */
+
+/* Tablette (640–980px) : hamburger + phone icon + bouton RDV */
+@media (max-width: 980px) {
+  .mc-nav-links { display: none; }
+  .mc-hamburger { display: flex; }
+  .mc-nav-inner {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 0;
+  }
+  .mc-nav-phone .phone-label { display: none; }
+  .mc-nav-phone { padding: 8px 10px; }
+}
+
+/* Mobile (480–640px) : hamburger + bouton RDV compact, sans téléphone */
+@media (max-width: 640px) {
+  .mc-nav-phone { display: none; }
+  .mc-nav-rdv--pill { font-size: 12px; padding: 8px 6px 8px 14px; gap: 8px; }
+  .mc-nav-rdv--pill .arrow { width: 24px; height: 24px; font-size: 11px; }
+}
+
+/* Petit mobile (<480px) : hamburger seul, bouton RDV masqué, nom masqué */
+@media (max-width: 480px) {
+  .mc-nav-rdv--pill { display: none; }
+  .mc-logo-name { display: none; }
+  .mc-nav-inner { padding: 6px 8px 6px 14px; }
+}
 
 /* Footer */
 .mc-footer { background: var(--mc-ink); color: var(--mc-white); padding: 80px 0 40px; margin-top: 120px; }

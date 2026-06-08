@@ -192,7 +192,7 @@ export default function ParticulierPage() {
             </div>
             <div className="family-grid">
               {[
-                { n: "01", title: "Logement sécurisé",    desc: "Bail négocié et signé depuis la France métropolitaine ou les DOM-TOM. Adresse confirmée avant l&apos;arrivée.", tag: "Avant le départ" },
+                { n: "01", title: "Logement sécurisé",    desc: "Bail négocié et signé depuis la France métropolitaine ou les Départements Ultramarins. Adresse confirmée avant l&apos;arrivée.", tag: "Avant le départ" },
                 { n: "02", title: "École des enfants",     desc: "Inscriptions, choix du quartier scolaire, démarches administratives — bouclés avant l&apos;arrivée.", tag: "Francophone ou anglophone" },
                 { n: "03", title: "Compte bancaire",       desc: "Ouverture à distance auprès des grandes banques canadiennes. Votre carte arrive avant vous.", tag: "Grandes banques partenaires" },
                 { n: "04", title: "Couverture santé",      desc: "RAMQ + assurance de transition pour les 3 premiers mois. Famille entière couverte dès J+1.", tag: "Zéro rupture de couverture" },
