@@ -141,31 +141,31 @@ button { font-family: inherit; cursor: pointer; border: 0; background: transpare
   .mc-nav-phone { padding: 8px 10px; }
 }
 
-/* Mobile (<640px) : pill invisible, logo + hamburger flottants */
+/* Mobile (<640px) : transparent au top, glassmorphism au scroll */
 @media (max-width: 640px) {
   .mc-nav-phone { display: none; }
   .mc-nav-rdv--pill { font-size: 12px; padding: 8px 6px 8px 14px; gap: 8px; }
   .mc-nav-rdv--pill .arrow { width: 24px; height: 24px; font-size: 11px; }
+
+  /* Pill invisible par défaut */
   .mc-nav-inner {
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border-color: transparent;
-    box-shadow: none;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
     padding: 4px 0;
     transition: background .3s ease, border-color .3s ease, box-shadow .3s ease, padding .3s ease;
   }
   .mc-nav .mc-hamburger .mc-hamburger-icon span { background: var(--mc-white); }
-}
 
-/* Mobile scrollé : fond glassmorphism réapparaît */
-@media (max-width: 640px) {
+  /* Pill réapparaît dès que l'utilisateur scrolle */
   .mc-nav.scrolled .mc-nav-inner {
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: saturate(180%) blur(22px);
-    -webkit-backdrop-filter: saturate(180%) blur(22px);
-    border-color: rgba(5,10,24,0.08);
-    box-shadow: 0 2px 16px -4px rgba(5,10,24,0.1);
+    background: rgba(255,255,255,0.88) !important;
+    backdrop-filter: saturate(180%) blur(22px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(22px) !important;
+    border-color: rgba(5,10,24,0.08) !important;
+    box-shadow: 0 2px 16px -4px rgba(5,10,24,0.1) !important;
     padding: 6px 10px 6px 16px;
   }
   .mc-nav.scrolled .mc-hamburger .mc-hamburger-icon span { background: var(--mc-ink); }
