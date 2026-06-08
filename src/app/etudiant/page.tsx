@@ -71,7 +71,7 @@ export default function EtudiantPage() {
                   <span className="dot" aria-hidden="true" />
                   <span className="eyebrow">Étudiants &amp; familles — France métropolitaine &amp; Départements Ultramarins</span>
                 </div>
-                <h1 id="etudiant-h1" style={{ fontSize: "clamp(78px, 3.8vw, 52px)", lineHeight: 1.1 }}>
+                <h1 id="etudiant-h1" style={{ fontSize: "clamp(32px, 3.8vw, 52px)", lineHeight: 1.1 }}>
                   De ta lettre d&apos;admission {" "}
                   <em>aux clés de ton appartement.</em>
                 </h1>
