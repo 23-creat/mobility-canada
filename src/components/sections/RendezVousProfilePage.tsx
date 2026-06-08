@@ -68,8 +68,7 @@ export default function RendezVousProfilePage({
               <iframe
                 src={`${calendlyUrl}${calendlyUrl?.includes("?") ? "&" : "?"}hide_gdpr_banner=1&locale=fr`}
                 width="100%"
-                height="700"
-                style={{ border: "none", borderRadius: 16, background: "var(--mc-white)" }}
+                style={{ border: "none", borderRadius: 16, background: "var(--mc-white)", height: "clamp(560px, 75vh, 700px)" }}
                 title="Réserver un appel de 15 minutes avec Mobility Canada"
               />
             )}

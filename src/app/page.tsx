@@ -78,7 +78,7 @@ export default function HomePage() {
                 "McGill University", "Université de Montréal", "Concordia", "UQAM",
                 "Université Laval", "HEC Montréal", "Polytechnique", "UQAC",
               ].map((name, i) => (
-                <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 48 }}>
+                <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: "clamp(20px, 3vw, 48px)" }}>
                   {name}
                   <span className="sep" />
                 </span>

@@ -315,7 +315,7 @@ export default function ReserverTonAppelPage() {
               }}>
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} style={{
-                    flex: "0 0 260px",
+                    flex: "0 0 clamp(200px, 70vw, 260px)",
                     scrollSnapAlign: "start",
                     aspectRatio: "9/16",
                     background: "var(--mc-line)",
@@ -370,7 +370,7 @@ export default function ReserverTonAppelPage() {
             }}>
               {AVIS.map((avis) => (
                 <li key={avis.nom} className="mc-reveal" style={{
-                  flex: "0 0 320px",
+                  flex: "0 0 clamp(260px, 80vw, 320px)",
                   scrollSnapAlign: "start",
                   background: "var(--mc-paper)",
                   borderRadius: "var(--r-lg)",
