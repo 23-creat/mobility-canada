@@ -733,8 +733,13 @@ button { font-family: inherit; cursor: pointer; border: 0; background: transpare
 }
 @media (max-width: 560px) {
   .equipe-member { grid-template-columns: 96px 1fr !important; gap: 16px !important; padding: 18px !important; }
-  .equipe-member-photo { width: 96px; border-radius: 16px; }
+  .equipe-member-photo { width: 96px !important; height: 96px !important; border-radius: 16px; }
   .equipe-member h3 { font-size: 22px; }
   .equipe-member p:not(.equipe-member-kicker) { font-size: 13.5px; }
   .equipe-quote { padding: 22px; }
+}
+@media (max-width: 400px) {
+  .equipe-member { grid-template-columns: 80px 1fr !important; gap: 12px !important; padding: 16px !important; }
+  .equipe-member-photo { width: 80px !important; height: 80px !important; border-radius: 14px; }
+  .equipe-member h3 { font-size: 19px; }
 }

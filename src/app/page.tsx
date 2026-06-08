@@ -228,24 +228,14 @@ export default function HomePage() {
                   overflow: "hidden",
                 }}
               >
-                <article
-                  className="equipe-member"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "128px 1fr",
-                    gap: 24,
-                    alignItems: "center",
-                    background: "rgba(255,255,255,0.055)",
-                    padding: 24,
-                  }}
-                >
-                  <div className="equipe-member-photo" style={{ width: 128, height: 128, overflow: "hidden", borderRadius: 20 }}>
+                <article className="equipe-member">
+                  <div className="equipe-member-photo">
                     <Image
                       src="/frederic.jpg"
                       alt="Portrait de Frédéric Clément"
                       width={128}
                       height={128}
-                      style={{ width: 128, height: 128, objectFit: "cover", objectPosition: "center 30%" }}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }}
                     />
                   </div>
                   <div className="equipe-member-body">
@@ -258,24 +248,14 @@ export default function HomePage() {
                   </div>
                 </article>
 
-                <article
-                  className="equipe-member"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "128px 1fr",
-                    gap: 24,
-                    alignItems: "center",
-                    background: "rgba(255,255,255,0.055)",
-                    padding: 24,
-                  }}
-                >
-                  <div className="equipe-member-photo" style={{ width: 128, height: 128, overflow: "hidden", borderRadius: 20 }}>
+                <article className="equipe-member">
+                  <div className="equipe-member-photo">
                     <Image
                       src="/diana.jpg"
                       alt="Portrait de Diana Torbay-Clément"
                       width={128}
                       height={128}
-                      style={{ width: 128, height: 128, objectFit: "cover", objectPosition: "center 42%" }}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 42%" }}
                     />
                   </div>
                   <div className="equipe-member-body">
