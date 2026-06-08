@@ -31,7 +31,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "Gérez-vous directement les dossiers CAQ et permis d'études ?",
-      acceptedAnswer: { "@type": "Answer", text: "On t'oriente, prépare et vérifie chaque document, mais les dossiers d'immigration sont traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC. Tu bénéficies d'un encadrement rigoureux tout au long du processus." },
+      acceptedAnswer: { "@type": "Answer", text: "On t'oriente, prépare et vérifie chaque document, mais les dossiers d'immigration sont traités en coordination avec des consultants agréés CICC. Tu bénéficies d'un encadrement rigoureux tout au long du processus." },
     },
     {
       "@type": "Question",
@@ -46,7 +46,7 @@ const faqSchema = {
     {
       "@type": "Question",
       name: "Combien coûte l'accompagnement complet ?",
-      acceptedAnswer: { "@type": "Answer", text: "Nos services sont facturés à la carte, dès 1 200€ pour la recherche de logement. Chaque prestation est indépendante : accueil aéroport (300€), journée d'installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens." },
+      acceptedAnswer: { "@type": "Answer", text: "Le tarif est établi sur mesure après un appel de 15 minutes, en fonction de ton projet et des services dont tu as besoin. Réserve ton appel gratuit pour obtenir une estimation personnalisée." },
     },
   ],
 };
@@ -69,7 +69,7 @@ export default function EtudiantPage() {
               <div>
                 <div className="eyebrow-row">
                   <span className="dot" aria-hidden="true" />
-                  <span className="eyebrow">Étudiants &amp; familles — France métropolitaine &amp; DOM-TOM</span>
+                  <span className="eyebrow">Étudiants &amp; familles — France métropolitaine &amp; Départements Ultramarins</span>
                 </div>
                 <h1 id="etudiant-h1" style={{ fontSize: "clamp(78px, 3.8vw, 52px)", lineHeight: 1.1 }}>
                   De ta lettre d&apos;admission {" "}
@@ -187,7 +187,7 @@ export default function EtudiantPage() {
                   <li>
                     <div>
                       <h4>Réservation &amp; contrat</h4>
-                      <p>Nous négocions et signons le bail. Confirmation écrite remise avant le départ de France métropolitaine ou des DOM-TOM.</p>
+                      <p>Nous négocions et signons le bail. Confirmation écrite remise avant le départ de France métropolitaine ou des Départements Ultramarins.</p>
                     </div>
                   </li>
                   <li>
@@ -228,7 +228,7 @@ export default function EtudiantPage() {
                 {
                   label: "M-4",
                   title: "Admission & immigration",
-                  desc: "Lettre d'admission obtenue. CAQ et permis d'études traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC.",
+                  desc: "Lettre d'admission obtenue. CAQ et permis d'études traités en coordination avec des consultants agréés CICC.",
                   tag: "Frais payés",
                 },
                 {
@@ -276,7 +276,7 @@ export default function EtudiantPage() {
             <div className="svc-grid">
               {[
                 { n: "01", title: "Validation du programme",     desc: "Analyse de ton profil académique, sélection du programme et de l&apos;établissement le mieux adapté à ton projet. Le bon choix dès le départ évite des mois de retard.", tag: "Inclus dans le pack" },
-                { n: "02", title: "Assistance immigration",      desc: "On t&apos;oriente et t&apos;accompagne dans tes démarches : CAQ, permis d&apos;études, traduction de documents. Les dossiers sont traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC.", tag: "Soleil Immigration · CICC" },
+                { n: "02", title: "Assistance immigration",      desc: "On t&apos;oriente et t&apos;accompagne dans tes démarches : CAQ, permis d&apos;études, traduction de documents. Les dossiers sont traités en coordination avec des consultants agréés CICC.", tag: "Consultant agréé CICC" },
                 { n: "03", title: "Accueil aéroport",            desc: "Un référent t&apos;attend à l&apos;aéroport à ton atterrissage, t&apos;accompagne à ton logement et te remet les clés. Aucun taxi à chercher, aucune galère le jour J.", tag: "Inclus dans le pack" },
                 { n: "04", title: "Logement sécurisé",           desc: "Recherche via Kijiji, Centris et courtiers locaux selon tes critères et ton budget. Confirmation écrite avant l&apos;embarquement — tu pars en sachant où tu dors.", tag: "Avant le départ" },
                 { n: "05", title: "Facilitateur d&apos;installation", desc: "2 jours sur place (16h) à tes côtés : ouverture de compte bancaire, RAMQ, NAS, repérage du quartier. Un accompagnement terrain pour que tout soit opérationnel en 48h.", tag: "2 jours / 16h inclus" },
@@ -321,7 +321,7 @@ export default function EtudiantPage() {
               <div className="pricing-pack mc-reveal">
                 <div className="pack-label eyebrow">Services à la carte</div>
                 <div className="pack-price">1 200<span>€</span></div>
-                <p className="pack-note">À partir de — chaque prestation est sélectionnable indépendamment. Facturation en euros (France métropolitaine &amp; DOM-TOM) ou en dollars canadiens.</p>
+                <p className="pack-note">À partir de — chaque prestation est sélectionnable indépendamment. Facturation en euros (France métropolitaine &amp; Départements Ultramarins) ou en dollars canadiens.</p>
                 <ul className="pack-includes">
                   <li>✓ Recherche de logement</li>
                   <li>✓ Logement temporaire</li>
@@ -336,29 +336,35 @@ export default function EtudiantPage() {
               </div>
 
               <div className="pricing-extras mc-reveal">
-                <div className="pack-label eyebrow">Tarifs détaillés</div>
-                <table className="extras-table">
-                  <tbody>
-                    {[
-                      { label: "Recherche de logement",                          eur: "1 200€", cad: "1 600 CAD" },
-                      { label: "Logement temporaire",                            eur: "200€",   cad: "300 CAD" },
-                      { label: "Accueil aéroport",                               eur: "300€",   cad: "440 CAD" },
-                      { label: "Journée d'installation",                         eur: "500€",   cad: "750 CAD" },
-                      { label: "Orientation ville (4h)",                         eur: "250€",   cad: "—" },
-                      { label: "Démarches RAMQ + NAS",                           eur: "100€",   cad: "—" },
-                      { label: "Ouverture compte banque / tél / internet",       eur: "150€",   cad: "—" },
-                      { label: "Course IKEA + livraison logement",               eur: "—",      cad: "150 CAD" },
-                      { label: "Pack mobilier (lit/canapé/bureau/table/chaises)", eur: "—",     cad: "150 CAD" },
-                      { label: "HELP LINE — assistance mail & tél (1 an)",       eur: "180€",   cad: "260 CAD" },
-                    ].map(({ label, eur, cad }) => (
-                      <tr key={label}>
-                        <td>{label}</td>
-                        <td>{eur}</td>
-                        <td style={{ color: "var(--mc-mute)" }}>{cad}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <div className="pack-label eyebrow">Nos prestations</div>
+                <p style={{ fontSize: 15, color: "var(--mc-soft)", lineHeight: 1.7, marginBottom: 28 }}>
+                  Chaque service est sélectionnable selon votre projet et vos besoins.
+                  Les tarifs sont établis sur mesure après un premier appel gratuit.
+                </p>
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14 }}>
+                  {[
+                    "Recherche &amp; sécurisation du logement",
+                    "Logement temporaire à l&apos;arrivée",
+                    "Accueil à l&apos;aéroport",
+                    "Journée d&apos;installation sur place (16h)",
+                    "Orientation ville et repérage quartier",
+                    "Ouverture compte bancaire, RAMQ, NAS",
+                    "Aide à l&apos;ameublement",
+                    "HELP LINE — assistance 1 an",
+                  ].map((s) => (
+                    <li key={s} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: 15, color: "var(--mc-ink)" }}>
+                      <span style={{ color: "var(--mc-accent)", fontWeight: 700, flexShrink: 0 }}>→</span>
+                      <span dangerouslySetInnerHTML={{ __html: s }} />
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/rendez-vous/etudiant"
+                  className="btn btn-ghost"
+                  style={{ marginTop: 32, alignSelf: "flex-start" }}
+                >
+                  Demander un devis personnalisé
+                </Link>
               </div>
             </div>
           </div>
@@ -433,7 +439,7 @@ export default function EtudiantPage() {
                 <div>
                   <div className="label">Pour les parents</div>
                   <h3>Dormez sur vos deux oreilles.</h3>
-                  <p>Vous êtes en France métropolitaine ou dans les DOM-TOM. Votre enfant est au Canada. Vous méritez de savoir exactement ce qui se passe.</p>
+                  <p>Vous êtes en France métropolitaine ou dans les Départements Ultramarins. Votre enfant est au Canada. Vous méritez de savoir exactement ce qui se passe.</p>
                   <ul>
                     <li>→ Rapport d&apos;étape à chaque validation</li>
                     <li>→ Logement confirmé avant l&apos;embarquement</li>
@@ -474,11 +480,11 @@ export default function EtudiantPage() {
                 },
                 {
                   q: "Gérez-vous directement les dossiers CAQ et permis d&apos;études ?",
-                  a: "On t&apos;oriente, prépare et vérifie chaque document, mais les dossiers d&apos;immigration sont traités en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC. Cette distinction est importante : tu bénéficies d&apos;un encadrement rigoureux tout au long du processus.",
+                  a: "On t&apos;oriente, prépare et vérifie chaque document, mais les dossiers d&apos;immigration sont traités en coordination avec des consultants agréés CICC. Cette distinction est importante : tu bénéficies d&apos;un encadrement rigoureux tout au long du processus.",
                 },
                 {
                   q: "Quelle est la différence entre le CAQ et le permis d&apos;études ?",
-                  a: "Le CAQ est un document provincial (Québec uniquement), délivré par le Ministère de l&apos;Immigration du Québec. Le permis d&apos;études est un document fédéral délivré par IRCC. Pour étudier au Québec, les deux sont obligatoires. Ces démarches sont traitées en coordination avec Soleil Immigration (soleilimmigration.ca), consultant agréé CICC.",
+                  a: "Le CAQ est un document provincial (Québec uniquement), délivré par le Ministère de l&apos;Immigration du Québec. Le permis d&apos;études est un document fédéral délivré par IRCC. Pour étudier au Québec, les deux sont obligatoires. Ces démarches sont traitées en coordination avec des consultants agréés CICC.",
                 },
                 {
                   q: "Comment le logement est-il sécurisé avant le départ ?",
@@ -490,7 +496,7 @@ export default function EtudiantPage() {
                 },
                 {
                   q: "Combien coûte l&apos;accompagnement complet ?",
-                  a: "Nos services sont facturés à la carte, dès 1 200€ pour la recherche de logement. Chaque prestation est sélectionnable indépendamment : logement temporaire (200€), accueil aéroport (300€), journée d&apos;installation (500€), HELP LINE 1 an (180€)… Facturation en euros ou en dollars canadiens.",
+                  a: "Le tarif est établi sur mesure après un appel de 15 minutes, en fonction de ton projet et des services dont tu as besoin. Réserve ton appel gratuit pour obtenir une estimation personnalisée.",
                 },
               ].map(({ q, a }) => (
                 <details key={q} className="faq-item">

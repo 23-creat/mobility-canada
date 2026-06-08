@@ -24,8 +24,8 @@ const REASSURANCE = [
   },
   {
     num: "03",
-    title: "DOM-TOM & France métropolitaine",
-    desc: "On accompagne les étudiants de tous les DOM-TOM (Antilles, La Réunion, Guyane, Mayotte, Polynésie…) et de France métropolitaine.",
+    title: "Départements Ultramarins & France métropolitaine",
+    desc: "On accompagne les étudiants des Départements Ultramarins (Antilles, La Réunion, Guyane, Mayotte, Polynésie…) et de France métropolitaine.",
   },
 ];
 
@@ -436,7 +436,7 @@ export default function ReserverTonAppelPage() {
               contact@mobilitycanada.fr
             </a>
             <a
-              href="https://wa.me/33000000000"
+              href="https://wa.me/15143770857"
               target="_blank"
               rel="noopener noreferrer"
               style={{

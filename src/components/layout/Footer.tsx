@@ -66,8 +66,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Giant wordmark */}
-      <div className="mc-footer-wordmark mc-container" aria-hidden="true">
+      {/* Giant wordmark — pleine largeur, sans mc-container pour éviter le clipping */}
+      <div className="mc-footer-wordmark" aria-hidden="true">
         Mobility Canada
       </div>
 

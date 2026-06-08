@@ -9,22 +9,25 @@ interface Route {
 }
 
 const ROUTES: Route[] = [
-  { path: "",              priority: 1.0, changeFrequency: "weekly"  },
-  { path: "/etudiant",    priority: 0.9, changeFrequency: "monthly" },
-  { path: "/particulier", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/entreprise",  priority: 0.9, changeFrequency: "monthly" },
-  { path: "/rendez-vous", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/rendez-vous/etudiant", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/rendez-vous/particulier", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/rendez-vous/entreprise", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/guide",       priority: 0.7, changeFrequency: "monthly" },
-  { path: "/faq",         priority: 0.6, changeFrequency: "monthly" },
+  { path: "",                          priority: 1.0, changeFrequency: "weekly"  },
+  { path: "/etudiant",                 priority: 0.9, changeFrequency: "monthly" },
+  { path: "/particulier",              priority: 0.9, changeFrequency: "monthly" },
+  { path: "/entreprise",               priority: 0.9, changeFrequency: "monthly" },
+  { path: "/rendez-vous",              priority: 0.8, changeFrequency: "monthly" },
+  { path: "/rendez-vous/etudiant",     priority: 0.7, changeFrequency: "monthly" },
+  { path: "/rendez-vous/particulier",  priority: 0.7, changeFrequency: "monthly" },
+  { path: "/rendez-vous/entreprise",   priority: 0.7, changeFrequency: "monthly" },
+  { path: "/blog",                     priority: 0.6, changeFrequency: "weekly"  },
+  { path: "/mentions-legales",         priority: 0.2, changeFrequency: "yearly"  },
+  { path: "/confidentialite",          priority: 0.2, changeFrequency: "yearly"  },
+  { path: "/loi-25",                   priority: 0.2, changeFrequency: "yearly"  },
+  { path: "/cgu",                      priority: 0.2, changeFrequency: "yearly"  },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ROUTES.map(({ path, priority, changeFrequency }) => ({
     url: `${BASE_URL}${path}`,
-    lastModified: new Date("2026-05-07"),
+    lastModified: new Date("2026-06-07"),
     changeFrequency,
     priority,
   }));

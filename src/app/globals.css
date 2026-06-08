@@ -110,8 +110,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: transpare
 
 /* Footer */
 .mc-footer { background: var(--mc-ink); color: var(--mc-white); padding: 80px 0 40px; margin-top: 120px; }
-.mc-footer-wordmark { font-family: var(--mc-display); font-size: clamp(64px, 18vw, 240px); font-weight: 700; letter-spacing: -0.06em; line-height: 0.8; color: var(--mc-white); white-space: nowrap; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); overflow: hidden; position: relative; }
-.mc-footer-wordmark::after { content: ""; position: absolute; right: 40px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; background: var(--mc-accent); border-radius: 50%; }
+.mc-footer-wordmark { font-family: var(--mc-display); font-size: clamp(38px, 10vw, 148px); font-weight: 700; letter-spacing: -0.045em; line-height: 0.9; color: var(--mc-white); white-space: nowrap; padding: 40px var(--mc-gutter); border-top: 1px solid rgba(255,255,255,0.12); border-bottom: 1px solid rgba(255,255,255,0.12); overflow: clip; text-align: center; }
 .mc-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding: 48px 0; }
 @media (max-width: 800px) { .mc-footer-grid { grid-template-columns: 1fr 1fr; } }
 .mc-footer-col h4 { font-family: var(--mc-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 20px; font-weight: 500; }

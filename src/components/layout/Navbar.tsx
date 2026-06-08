@@ -37,13 +37,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="mc-logo" aria-label="Mobility Canada — Accueil">
             <Image
-              src="/logo.png"
-              alt="Mobility Canada"
+              src="/juste_logo.png"
+              alt=""
               width={44}
               height={55}
               priority
-              style={{ height: 38, width: "auto", borderRadius: 8 }}
+              style={{ height: 54, width: "auto", borderRadius: 8 }}
+              aria-hidden
             />
+            <span className="mc-logo-name">Mobility Canada</span>
           </Link>
 
           {/* Links */}
